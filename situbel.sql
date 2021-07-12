@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Jul 2021 pada 08.32
+-- Waktu pembuatan: 12 Jul 2021 pada 04.28
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.4.8
 
@@ -53,8 +53,11 @@ CREATE TABLE `report` (
 --
 
 INSERT INTO `report` (`id`, `users_id`, `study_id`, `report_bayar_id`, `nama`, `start_date`, `end_date`, `semester`, `nominal`, `status`, `keterangan`, `komentar`, `status_bayar`, `created_at`, `updated_at`, `admin`, `approved_at`, `report_type_id`) VALUES
-(1, 4, 1, 0, 'Pembayaran Living Cost Pertama', '2021-07-01', '2021-07-31', '1', 10000000, 0, 'Harap Segera', 'Baik', 0, '2021-07-07 08:03:26', '2021-07-07 08:03:26', 1, '0000-00-00 00:00:00', 1),
-(2, 4, 1, 0, 'Pembayaran Tuition Fee Pertama', '2021-07-07', '2021-07-31', '1', 2000000, 0, 'urgent', 'baik', 0, '2021-07-07 08:06:58', '2021-07-07 08:06:58', 1, '0000-00-00 00:00:00', 2);
+(1, 4, 1, 9, 'Pembayaran Living Cost Pertama', '2021-07-01', '2021-07-31', '1', 10000000, 0, 'Harap Segera', 'Baik', 0, '2021-07-07 08:03:26', '2021-07-07 08:03:26', 1, '0000-00-00 00:00:00', 1),
+(2, 4, 1, 9, 'Pembayaran Tuition Fee Pertama', '2021-07-07', '2021-07-31', '1', 2000000, 0, 'urgent', 'baik', 0, '2021-07-07 08:06:58', '2021-07-07 08:06:58', 1, '0000-00-00 00:00:00', 2),
+(3, 4, 1, 0, 'tes', '2021-07-11', '2021-07-11', '1', 1000000, 0, 'adwdwa', 'adwdwa\r\n', 0, '2021-07-11 23:32:47', '2021-07-11 23:32:47', 1, '0000-00-00 00:00:00', 1),
+(4, 4, 1, 0, 'tes 2', '2021-07-11', '2021-07-11', '1', 2000000, 0, 'adwdwa', 'adwdwa\r\n', 0, '2021-07-11 23:33:13', '2021-07-11 23:33:13', 1, '0000-00-00 00:00:00', 1),
+(5, 4, 1, 1, 'tes 4', '2021-07-11', '2021-07-13', '1', 1000000, 0, 'ddgdgd', 'hfhfh', 0, '2021-07-11 23:35:48', '2021-07-11 23:35:48', 1, '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -64,13 +67,30 @@ INSERT INTO `report` (`id`, `users_id`, `study_id`, `report_bayar_id`, `nama`, `
 
 CREATE TABLE `report_bayar` (
   `id` int(11) NOT NULL,
+  `users_id` int(11) NOT NULL,
   `semester` int(4) NOT NULL,
   `kurs` varchar(64) NOT NULL,
   `tanggal_bayar` date NOT NULL,
   `nominal` int(64) NOT NULL,
+  `admin` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `report_bayar`
+--
+
+INSERT INTO `report_bayar` (`id`, `users_id`, `semester`, `kurs`, `tanggal_bayar`, `nominal`, `admin`, `created_at`, `updated_at`) VALUES
+(1, 4, 1, '131,52', '2021-07-12', 10000000, 1, '2021-07-12 00:34:19', '2021-07-12 00:34:19'),
+(2, 4, 1, '13.309,73', '2021-07-12', 0, 1, '2021-07-12 03:51:55', '2021-07-12 03:51:55'),
+(3, 4, 1, '13.309,73', '2021-07-12', 0, 1, '2021-07-12 03:52:25', '2021-07-12 03:52:25'),
+(4, 4, 1, '13.309,73', '2021-07-12', 0, 1, '2021-07-12 03:53:27', '2021-07-12 03:53:27'),
+(5, 4, 1, '13.309,73', '2021-07-12', 0, 1, '2021-07-12 03:54:21', '2021-07-12 03:54:21'),
+(6, 4, 1, '13.309,73', '2021-07-13', 0, 1, '2021-07-12 04:02:35', '2021-07-12 04:02:35'),
+(7, 4, 2, '13.309,73', '2021-07-12', 0, 1, '2021-07-12 04:04:08', '2021-07-12 04:04:08'),
+(8, 4, 2, '13.309,73', '0000-00-00', 0, 1, '2021-07-12 04:07:04', '2021-07-12 04:07:04'),
+(9, 4, 3, '13.309,73', '2021-07-12', 0, 1, '2021-07-12 04:08:10', '2021-07-12 04:08:10');
 
 -- --------------------------------------------------------
 
@@ -145,6 +165,7 @@ CREATE TABLE `study` (
   `postal_code` varchar(16) NOT NULL,
   `jenjang` varchar(32) NOT NULL,
   `program_studi` varchar(64) NOT NULL,
+  `status` int(2) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -153,8 +174,8 @@ CREATE TABLE `study` (
 -- Dumping data untuk tabel `study`
 --
 
-INSERT INTO `study` (`id`, `users_id`, `university`, `country`, `province`, `city`, `mata_uang`, `postal_code`, `jenjang`, `program_studi`, `created_at`, `updated_at`) VALUES
-(1, 4, 'Universitas Diponegoro', 'Indonesia', 'Jawa Tengah', 'Semarang', 'IDR', '50264', 'Sarjana', 'Teknik Komunikasi', '2021-07-07 08:03:56', '2021-07-07 08:03:56');
+INSERT INTO `study` (`id`, `users_id`, `university`, `country`, `province`, `city`, `mata_uang`, `postal_code`, `jenjang`, `program_studi`, `status`, `created_at`, `updated_at`) VALUES
+(1, 4, 'Universitas Diponegoro', 'Indonesia', 'Jawa Tengah', 'Semarang', 'IDR', '50264', 'Sarjana', 'Teknik Komunikasi', 0, '2021-07-07 08:03:56', '2021-07-07 08:03:56');
 
 -- --------------------------------------------------------
 
@@ -272,13 +293,13 @@ ALTER TABLE `users_detail`
 -- AUTO_INCREMENT untuk tabel `report`
 --
 ALTER TABLE `report`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `report_bayar`
 --
 ALTER TABLE `report_bayar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `report_document`
