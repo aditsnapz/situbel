@@ -15,6 +15,13 @@ class ReportModel extends CI_Model
         return $this->db->get('report')->result();
     }
 
+	public function show_bayar($id)
+    {
+        $this->db->select('*');
+		$this->db->where('report_bayar_id',$id);
+        return $this->db->get('report')->result();
+    }
+
 	public function show_report_tubeldn($id,$id_report)
     {
         $this->db->select('*');

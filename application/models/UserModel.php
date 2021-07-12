@@ -22,6 +22,13 @@ class UserModel extends CI_Model
         return $this->db->get('users')->result();
     }
 
+	public function show_user_session($username)
+    {
+        $this->db->select('*');
+		$this->db->where('username',$username);
+        return $this->db->get('users')->result();
+    }
+
 	public function show_id($id)
     {
         $this->db->select('*');

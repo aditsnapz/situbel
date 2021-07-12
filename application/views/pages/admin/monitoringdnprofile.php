@@ -85,7 +85,7 @@
 											<input type="text" name="nama" id="nama" class="col-md-10 form-control" value="<?= $users->email ?>">
 											<h4>Tempat & Tanggal Lahir </h4>
 											<input type="text" name="nama" id="nama" class="col-md-10 form-control" value="<?= $users->pob.' , '.$users->dob ?>">
-											<h4>Tempat & Tanggal Lahir </h4>
+											<h4>No HP </h4>
 											<input type="text" name="nama" id="nama" class="col-md-10 form-control" value="<?= $users->mobile_phone ?>">
 											
 											<h4>Universitas Logo</h4>
@@ -211,120 +211,7 @@
 									</div>
 
 								</div>
-								<div class="tab-pane fade  <?= $category == 'livingcost' ?'show active':''?>"
-									id="custom-tabs-one-home" role="tabpanel"
-									aria-labelledby="custom-tabs-one-home-tab">
-									<table class="table table-striped table-bordered table-hover dataku">
-										<thead class="atas">
-											<tr>
-												<th width="5%">ID</th>
-												<th width="15%">Nama</th>
-												<th width="15%">Semester</th>
-												<th width="10%">Nominal</th>
-												<th width="10%">Status</th>
-												<th width="10%">Status Bayar</td>
-												<th width="10%">Dibuat</td>
-												<th>Action</th>
-											</tr>
-										</thead>
-										<tbody>
-											<?php
-											$no=1;
-											foreach ($reports as $report) {
-											?>
-											<tr>
-												<td><?php echo $no; ?></td>
-												<td><?php echo $report->nama; ?></td>
-												<td><?php echo $report->semester; ?></td>
-												<td><?php echo $report->nominal; ?></td>
-												<td><?php echo $report->status; ?></td>
-												<td><?php echo $report->status_bayar; ?></td>
-												<td><?php echo $report->created_at; ?></td>
-												<td>
-													<a class="btn btn-warning btn-sm"
-														href="<?= base_url("admin/monitoringdn/").$report->id ?>"><i
-															class="fa fa-desktop "></i></a>&nbsp&nbsp
-													<button type="button" class="btn btn-sm btn-primary"
-														data-toggle="modal"
-														data-target="#edit-report<?php echo $report->id;?>"><i
-															class="fa fa-user"></i></button>&nbsp&nbsp
-													<a class="btn btn-danger btn-sm delete-link"
-														href="<?= base_url('User/delete/'.$report->id);?>"><i
-															class="fa fa-trash "></i></a>
-
-												</td>
-											</tr>
-											<?php $no++; } ?>
-
-										</tbody>
-
-
-									</table>
-								</div>
-								<div class="tab-pane fade <?= $category == 'tuitionfee' ?'show active':''?>"
-									id="custom-tabs-one-profile" role="tabpanel"
-									aria-labelledby="custom-tabs-one-profile-tab">
-									<table class="table table-striped table-bordered table-hover dataku">
-										<thead class="atas">
-											<tr>
-												<th width="5%">ID</th>
-												<th width="15%">Nama</th>
-												<th width="15%">Semester</th>
-												<th width="10%">Nominal</th>
-												<th width="10%">Status</th>
-												<th width="10%">Status Bayar</td>
-												<th width="10%">Dibuat</td>
-												<th>Action</th>
-											</tr>
-										</thead>
-										<tbody>
-											<?php
-											$no=1;
-											foreach ($reports as $report) {
-											?>
-											<tr>
-												<td><?php echo $no; ?></td>
-												<td><?php echo $report->nama; ?></td>
-												<td><?php echo $report->semester; ?></td>
-												<td><?php echo $report->nominal; ?></td>
-												<td><?php echo $report->status; ?></td>
-												<td><?php echo $report->status_bayar; ?></td>
-												<td><?php echo $report->created_at; ?></td>
-												<td>
-													<a class="btn btn-warning btn-sm"
-														href="<?= base_url("admin/monitoringdn/").$report->id ?>"><i
-															class="fa fa-desktop "></i></a>&nbsp&nbsp
-													<button type="button" class="btn btn-sm btn-primary"
-														data-toggle="modal"
-														data-target="#edit-report<?php echo $report->id;?>"><i
-															class="fa fa-user"></i></button>&nbsp&nbsp
-													<a class="btn btn-danger btn-sm delete-link"
-														href="<?= base_url('User/delete/'.$report->id);?>"><i
-															class="fa fa-trash "></i></a>
-
-												</td>
-											</tr>
-											<?php $no++; } ?>
-
-										</tbody>
-
-
-									</table>
-								</div>
-								<div class="tab-pane fade <?= $category == 'pembayaran' ?'show active':''?>"
-									id="custom-tabs-one-messages" role="tabpanel"
-									aria-labelledby="custom-tabs-one-messages-tab">
-									Pembayaran Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris.
-									Phasellus
-									volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum.
-									Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec
-									augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc.
-									Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus
-									efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum.
-									Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum
-									metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare
-									magna.
-								</div>
+								
 
 							</div>
 						</div>

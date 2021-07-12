@@ -58,9 +58,16 @@ $route['admin'] = 'Admin';
 $route['admin/dashboard'] = 'adminweb/Dashboard';
 // Dalam Megeri
 $route['admin/tubeldn'] = 'adminweb/TubelDn';
+// Living Cost
 $route['admin/tubeldn/livingcost/(:any)'] = 'adminweb/MonitoringDn/livingcost/$id';
+$route['admin/tubeldn/livingcost_add'] = 'adminweb/MonitoringDn/livingcost_add';
+// End Living Cost
 $route['admin/tubeldn/tuitionfee/(:any)'] = 'adminweb/MonitoringDn/tuitionfee/$id';
+// Pembayaran
 $route['admin/tubeldn/pembayaran/(:any)'] = 'adminweb/MonitoringDn/pembayaran/$id';
+$route['admin/tubeldn/pembayaran_add'] = 'adminweb/MonitoringDn/pembayaran_add';
+$route['admin/tubeldn/pembayaran_cetak/(:any)'] = 'adminweb/MonitoringDn/pembayaran_cetak/$id';
+// End Pembayaran
 $route['admin/monitoringdn/(:any)'] = 'adminweb/MonitoringDn/index/$id';
 // End Dalam Negeri
 $route['admin/tubelln'] = 'adminweb/TubelLn';

@@ -25,10 +25,10 @@
 						<div class="card-header">
 							<h3 class="card-title"><b>Tabel Data </b></h3>
 							<div class="text-right">
-								<button type="button" class="btn btn-sm btn-warning" data-toggle="modal"
+								<!-- <button type="button" class="btn btn-sm btn-warning" data-toggle="modal"
 									data-target="#import-user"><i class="fa fa-upload"></i>&nbsp&nbspImport</button>
 								<button type="button" class="btn btn-sm btn-success" data-toggle="modal"
-									data-target="#tambah-user"><i class="fa fa-plus"></i>&nbsp&nbspTambah</button>
+									data-target="#tambah-user"><i class="fa fa-plus"></i>&nbsp&nbspTambah</button> -->
 							</div>
 						</div>
 						<!-- /.box-header -->
@@ -62,12 +62,12 @@
 											<a class="btn btn-warning btn-sm"
 												href="<?= base_url("admin/monitoringdn/").$user->id ?>"><i
 													class="fa fa-desktop "></i></a>&nbsp&nbsp
-											<button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
+											<!-- <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
 												data-target="#edit-user<?php echo $user->id;?>"><i
 													class="fa fa-user"></i></button>&nbsp&nbsp
 											<a class="btn btn-danger btn-sm delete-link"
 												href="<?= base_url('User/delete/'.$user->id);?>"><i
-													class="fa fa-trash "></i></a>
+													class="fa fa-trash "></i></a> -->
 											
 										</td>
 									</tr>
