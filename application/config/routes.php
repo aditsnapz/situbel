@@ -65,12 +65,39 @@ $route['admin/tubeldn/livingcost_add'] = 'adminweb/MonitoringDn/livingcost_add';
 $route['admin/tubeldn/tuitionfee/(:any)'] = 'adminweb/MonitoringDn/tuitionfee/$id';
 // Pembayaran
 $route['admin/tubeldn/pembayaran/(:any)'] = 'adminweb/MonitoringDn/pembayaran/$id';
+$route['admin/tubeldn/pembayaran/view_add/(:any)'] = 'adminweb/MonitoringDn/pembayaran_view_add/$id';
 $route['admin/tubeldn/pembayaran_add'] = 'adminweb/MonitoringDn/pembayaran_add';
 $route['admin/tubeldn/pembayaran_cetak/(:any)'] = 'adminweb/MonitoringDn/pembayaran_cetak/$id';
 // End Pembayaran
 $route['admin/monitoringdn/(:any)'] = 'adminweb/MonitoringDn/index/$id';
+
+// Luar Megeri
+$route['admin/tubelln'] = 'adminweb/Tubelln';
+// Living Cost
+$route['admin/tubelln/livingcost/(:any)'] = 'adminweb/Monitoringln/livingcost/$id';
+$route['admin/tubelln/livingcost_add'] = 'adminweb/Monitoringln/livingcost_add';
+// End Living Cost
+// Tuition Fee
+$route['admin/tubelln/tuitionfee/(:any)'] = 'adminweb/Monitoringln/tuitionfee/$id';
+// Insurance Fee
+$route['admin/tubelln/insurance/(:any)'] = 'adminweb/Monitoringln/insurance/$id';
+// Dissemination Fee
+$route['admin/tubelln/dissemination/(:any)'] = 'adminweb/Monitoringln/dissemination/$id';
+// Settlement Fee
+$route['admin/tubelln/settlement/(:any)'] = 'adminweb/Monitoringln/settlement/$id';
+// Entrance Fee
+$route['admin/tubelln/entrance/(:any)'] = 'adminweb/Monitoringln/entrance/$id';
+// Pembayaran
+$route['admin/tubelln/pembayaran/(:any)'] = 'adminweb/Monitoringln/pembayaran/$id';
+$route['admin/tubelln/pembayaran/view_add/(:any)'] = 'adminweb/Monitoringln/pembayaran_view_add/$id';
+$route['admin/tubelln/pembayaran_add'] = 'adminweb/Monitoringln/pembayaran_add';
+$route['admin/tubelln/pembayaran_cetak/(:any)'] = 'adminweb/Monitoringln/pembayaran_cetak/$id';
+// End Pembayaran
+$route['admin/monitoringln/(:any)'] = 'adminweb/Monitoringln/index/$id';
 // End Dalam Negeri
 $route['admin/tubelln'] = 'adminweb/TubelLn';
+
+
 
 $route['admin/user'] = 'adminweb/User';
 $route['admin/user/edit'] = 'adminweb/User/edit';
@@ -79,5 +106,7 @@ $route['admin/user/delete/(:any)'] = 'adminweb/User/delete/$id';
 /* End Admin */
 
 /* User */
-
+$route['user/livingcost'] = 'user/Report/livingcost';
+$route['user/tuitionfee'] = 'user/Report/tuitionfee';
+$route['user/tuitionfee_add'] = 'user/Report/tuitionfee_add';
 /* End User */

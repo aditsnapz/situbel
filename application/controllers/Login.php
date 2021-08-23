@@ -28,7 +28,7 @@ class Login extends CI_Controller {
             ];
 
             $this->session->set_userdata("session_user",$data);
-            redirect(base_url('Dashboard'));
+            redirect(base_url('user/dashboard'));
         }
         $this->session->set_flashdata('info','maaf username atau password salah');
         redirect(base_url('Login'));

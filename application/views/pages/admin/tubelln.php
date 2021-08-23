@@ -25,10 +25,10 @@
 						<div class="card-header">
 							<h3 class="card-title"><b>Tabel Data </b></h3>
 							<div class="text-right">
-								<button type="button" class="btn btn-sm btn-warning" data-toggle="modal"
+								<!-- <button type="button" class="btn btn-sm btn-warning" data-toggle="modal"
 									data-target="#import-user"><i class="fa fa-upload"></i>&nbsp&nbspImport</button>
 								<button type="button" class="btn btn-sm btn-success" data-toggle="modal"
-									data-target="#tambah-user"><i class="fa fa-plus"></i>&nbsp&nbspTambah</button>
+									data-target="#tambah-user"><i class="fa fa-plus"></i>&nbsp&nbspTambah</button> -->
 							</div>
 						</div>
 						<!-- /.box-header -->
@@ -40,7 +40,7 @@
 										<th width="5%">ID</th>
 										<th width="15%">Nama</th>
 										<th width="15%">Username</th>
-										<th width="20%">Foto</th>
+										<!-- <th width="20%">Foto</th> -->
 										<th width="15%">Created</th>
 										<th width="15%">Updated</th>
 										<th>Action</th>
@@ -55,20 +55,19 @@
 										<td><?php echo $no; ?></td>
 										<td><?php echo $user->nama; ?></td>
 										<td><?php echo $user->username; ?></td>
-										<td><img src="<?= base_url('assets/images/').$user->foto; ?>" width="100px">
-										</td>
+										<!-- <td></td> -->
 										<td><?php echo $user->created_at; ?></td>
 										<td><?php echo $user->updated_at; ?></td>
 										<td>
 											<a class="btn btn-warning btn-sm"
-												href="<?= base_url("Login/do_login_user/").$user->id ?>"><i
+												href="<?= base_url("admin/monitoringln/").$user->id ?>"><i
 													class="fa fa-desktop "></i></a>&nbsp&nbsp
-											<button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
+											<!-- <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
 												data-target="#edit-user<?php echo $user->id;?>"><i
-													class="fa fa-edit"></i></button>&nbsp&nbsp
+													class="fa fa-user"></i></button>&nbsp&nbsp
 											<a class="btn btn-danger btn-sm delete-link"
 												href="<?= base_url('User/delete/'.$user->id);?>"><i
-													class="fa fa-trash "></i></a>
+													class="fa fa-trash "></i></a> -->
 											
 										</td>
 									</tr>

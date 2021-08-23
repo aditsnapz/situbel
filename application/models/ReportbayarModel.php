@@ -15,6 +15,13 @@ class ReportbayarModel extends CI_Model
         return $this->db->get('report_bayar')->result();
     }
 
+	public function show_id2($id)
+    {
+        $this->db->select('*');
+		$this->db->where('id',$id);
+        return $this->db->get('report_bayar')->result();
+    }
+
     public function insert($data)
     {
         $this->db->insert('report_bayar', $data);

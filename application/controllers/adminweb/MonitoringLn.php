@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class MonitoringDn extends CI_Controller {
+class MonitoringLn extends CI_Controller {
 
     public function __construct()
     {
@@ -22,7 +22,7 @@ class MonitoringDn extends CI_Controller {
 		// var_dump($users);
 		// die();
         $this->load->view('main_admin.php',[
-            "page" => "monitoringdnprofile",
+            "page" => "monitoringlnprofile",
             "content" => [],
 			"category" => 'profile',
 			"users" => $users,
@@ -36,13 +36,81 @@ class MonitoringDn extends CI_Controller {
 	{
 		$id = $this->uri->segment(4);
 		$report_type = $this->ReporttypeModel->show_id(1);
-		$reports = $this->ReportModel->show_report_tubeldn($id,$report_type->id);
+		$reports = $this->ReportModel->show_report_tubelln($id,$report_type->id);
 		// var_dump($reports);
 		// die();
         $this->load->view('main_admin.php',[
-            "page" => "monitoringdn",
+            "page" => "monitoringln",
             "content" => [],
 			"category" => 'livingcost',
+			"users_id" => $id,
+			"reports" => $reports
+            
+        ]);
+	}
+
+	public function insurance()
+	{
+		$id = $this->uri->segment(4);
+		$report_type = $this->ReporttypeModel->show_id(1);
+		$reports = $this->ReportModel->show_report_tubelln($id,$report_type->id);
+		// var_dump($reports);
+		// die();
+        $this->load->view('main_admin.php',[
+            "page" => "monitoringln",
+            "content" => [],
+			"category" => 'insurance',
+			"users_id" => $id,
+			"reports" => $reports
+            
+        ]);
+	}
+
+	public function dissemination()
+	{
+		$id = $this->uri->segment(4);
+		$report_type = $this->ReporttypeModel->show_id(1);
+		$reports = $this->ReportModel->show_report_tubelln($id,$report_type->id);
+		// var_dump($reports);
+		// die();
+        $this->load->view('main_admin.php',[
+            "page" => "monitoringln",
+            "content" => [],
+			"category" => 'dissemination',
+			"users_id" => $id,
+			"reports" => $reports
+            
+        ]);
+	}
+
+	public function settlement()
+	{
+		$id = $this->uri->segment(4);
+		$report_type = $this->ReporttypeModel->show_id(1);
+		$reports = $this->ReportModel->show_report_tubelln($id,$report_type->id);
+		// var_dump($reports);
+		// die();
+        $this->load->view('main_admin.php',[
+            "page" => "monitoringln",
+            "content" => [],
+			"category" => 'settlement',
+			"users_id" => $id,
+			"reports" => $reports
+            
+        ]);
+	}
+
+	public function entrance()
+	{
+		$id = $this->uri->segment(4);
+		$report_type = $this->ReporttypeModel->show_id(1);
+		$reports = $this->ReportModel->show_report_tubelln($id,$report_type->id);
+		// var_dump($reports);
+		// die();
+        $this->load->view('main_admin.php',[
+            "page" => "monitoringln",
+            "content" => [],
+			"category" => 'entrance',
 			"users_id" => $id,
 			"reports" => $reports
             
@@ -82,7 +150,7 @@ class MonitoringDn extends CI_Controller {
         
         
         $this->ReportModel->insert($data);
-        redirect(base_url('admin/tubeldn/livingcost/').$this->input->post('user_id'));
+        redirect(base_url('admin/tubelln/livingcost/').$this->input->post('user_id'));
         
 	}
 
@@ -90,10 +158,10 @@ class MonitoringDn extends CI_Controller {
 	{
 		$id = $this->uri->segment(4);
 		$report_type = $this->ReporttypeModel->show_id(2);
-		$reports = $this->ReportModel->show_report_tubeldn($id,$report_type->id);
+		$reports = $this->ReportModel->show_report_tubelln($id,$report_type->id);
 		// $id = $this->uri->segment(4);
         $this->load->view('main_admin.php',[
-            "page" => "monitoringdn",
+            "page" => "monitoringln",
             "content" => [],
 			"category" => 'tuitionfee',
 			"users_id" => $id,
@@ -107,13 +175,13 @@ class MonitoringDn extends CI_Controller {
 		$id = $this->uri->segment(4);
 		$bayar = $this->ReportbayarModel->show_id($id);
 		// living
-		$reports_living = $this->ReportModel->show_report_tubeldn($id,1);
+		$reports_living = $this->ReportModel->show_report_tubelln($id,1);
 		// tuition
-		$reports_tuition = $this->ReportModel->show_report_tubeldn($id,2);
+		$reports_tuition = $this->ReportModel->show_report_tubelln($id,2);
 		// var_dump($bayar);
 		// die();
         $this->load->view('main_admin.php',[
-            "page" => "monitoringdn",
+            "page" => "monitoringln",
             "content" => [],
 			"category" => 'pembayaran',
 			"users_id" => $id,
@@ -127,12 +195,12 @@ class MonitoringDn extends CI_Controller {
 	{
 		$id = $this->uri->segment(5);
 		// living
-		$report_unpaids = $this->ReportModel->show_reportall_tubeldn($id);
+		$report_unpaids = $this->ReportModel->show_reportall_tubelln($id);
 		$studys = $this->StudyModel->show_active_id($id);
 		// var_dump($studys);
 		// die();
 		$this->load->view('main_admin.php',[
-            "page" => "viewadddn",
+            "page" => "viewaddln",
             "content" => [],
 			"category" => 'pembayaran',
 			"users_id" => $id,
@@ -181,7 +249,7 @@ class MonitoringDn extends CI_Controller {
 			$this->ReportModel->update($report,$biaya[$i]);
 		}
 
-        redirect(base_url('admin/tubeldn/pembayaran/').$this->input->post('user_id'));
+        redirect(base_url('admin/tubelln/pembayaran/').$this->input->post('user_id'));
 	}
 
 	public function pembayaran_cetak()

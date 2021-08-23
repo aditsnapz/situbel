@@ -11,7 +11,7 @@ class StudyModel extends CI_Model
 	public function show_active_id($id)
     {
         $this->db->select('*');
-		// $this->db->where('status',1);
+		$this->db->where('status',1);
 		$this->db->where('users_id',$id);
         return $this->db->get('study')->result();
     }

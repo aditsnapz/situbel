@@ -53,6 +53,14 @@ class UserModel extends CI_Model
         return $this->db->get('users_detail')->result();
     }
 
+	public function show_user_tubelln()
+    {
+        $this->db->select('*');
+		$this->db->where('users_detail.status',2);
+		$this->db->join('users','users_detail.users_id = users.id');
+        return $this->db->get('users_detail')->result();
+    }
+
     public function insert($data)
     {
         $this->db->insert('users', $data);

@@ -11,7 +11,7 @@ class ReportModel extends CI_Model
 	public function show_id($id)
     {
         $this->db->select('*');
-		$this->db->where('users_id',$id);
+		$this->db->where('id',$id);
         return $this->db->get('report')->result();
     }
 
@@ -22,11 +22,35 @@ class ReportModel extends CI_Model
         return $this->db->get('report')->result();
     }
 
+	
+
 	public function show_report_tubeldn($id,$id_report)
     {
         $this->db->select('*');
 		$this->db->where('users_id',$id);
 		$this->db->where('report_type_id',$id_report);
+        return $this->db->get('report')->result();
+    }
+
+	public function show_reportall_tubeldn($id)
+    {
+        $this->db->select('*');
+		$this->db->where('users_id',$id);
+        return $this->db->get('report')->result();
+    }
+
+	public function show_report_tubelln($id,$id_report)
+    {
+        $this->db->select('*');
+		$this->db->where('users_id',$id);
+		$this->db->where('report_type_id',$id_report);
+        return $this->db->get('report')->result();
+    }
+
+	public function show_reportall_tubelln($id)
+    {
+        $this->db->select('*');
+		$this->db->where('users_id',$id);
         return $this->db->get('report')->result();
     }
 

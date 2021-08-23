@@ -15,7 +15,7 @@
           <img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?= $this->session->userdata('session_user')['nama'] ?></a>
+					<a href="#" class="d-block"><?= $this->session->userdata('session_user')['nama'] ?></a>
         </div>
       </div>
 
@@ -25,7 +25,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="active nav-item">
-            <a href="<?= base_url('Dashboard') ?>" class="nav-link">
+            <a href="<?= base_url('user/Dashboard') ?>" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -33,10 +33,27 @@
             </a>
           </li>
 					<li class="nav-item">
-            <a href="<?= base_url('Report') ?>" class="nav-link">
-              <i class="nav-icon ion ion-pie-graph"></i>
+            <a href="<?= base_url('user/livingcost') ?>" class="nav-link">
+              <i class="nav-icon fa fa-file"></i>
               <p>
-                Report
+                Living Cost
+              </p>
+            </a>
+          </li>
+					<li class="nav-item">
+            <a href="<?= base_url('user/tuitionfee') ?>" class="nav-link">
+              <i class="nav-icon fa fa-file"></i>
+              <p>
+                Tuition Fee
+              </p>
+            </a>
+          </li>
+					
+					<li class="nav-item">
+            <a href="<?= base_url('Report') ?>" class="nav-link">
+              <i class="nav-icon fa fa-user"></i>
+              <p>
+                Profil
               </p>
             </a>
           </li>

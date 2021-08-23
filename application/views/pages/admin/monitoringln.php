@@ -6,12 +6,12 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1>Tugas Belajar Dalam Negeri</h1>
+					<h1>Tugas Belajar Luar Negeri</h1>
 				</div>
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="#">Log Pembayaran</a></li>
-						<li class="breadcrumb-item active">Living Cost</li>
+						<li class="breadcrumb-item"><a href="#">Log Pembayarans</a></li>
+						<li class="breadcrumb-item active">Living Costs</li>
 					</ol>
 				</div>
 			</div>
@@ -28,25 +28,49 @@
 								<li class="nav-item">
 									<a class="nav-link <?= $category == 'profile' ?'active':''?>"
 										id="custom-tabs-one-home-tab"
-										href="<?= base_url('admin/monitoringdn/').$users_id ?>" role="tab"
+										href="<?= base_url('admin/monitoringln/').$users_id ?>" role="tab"
 										aria-controls="custom-tabs-one-home" aria-selected="true">Profile</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link <?= $category == 'livingcost' ?'active':''?>"
 										id="custom-tabs-one-home-tab"
-										href="<?= base_url('admin/tubeldn/livingcost/').$users_id ?>" role="tab"
+										href="<?= base_url('admin/tubelln/livingcost/').$users_id ?>" role="tab"
 										aria-controls="custom-tabs-one-home" aria-selected="true">Living Cost</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link <?= $category == 'tuitionfee' ?'active':''?>"
 										id="custom-tabs-one-profile-tab"
-										href="<?= base_url('admin/tubeldn/tuitionfee/').$users_id ?>" role="tab"
+										href="<?= base_url('admin/tubelln/tuitionfee/').$users_id ?>" role="tab"
 										aria-controls="custom-tabs-one-profile" aria-selected="false">Tuition Fee</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link <?= $category == 'insurance' ?'active':''?>"
+										id="custom-tabs-one-profile-tab"
+										href="<?= base_url('admin/tubelln/insurance/').$users_id ?>" role="tab"
+										aria-controls="custom-tabs-one-profile" aria-selected="false">Insurance</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link <?= $category == 'dissemination' ?'active':''?>"
+										id="custom-tabs-one-profile-tab"
+										href="<?= base_url('admin/tubelln/dissemination/').$users_id ?>" role="tab"
+										aria-controls="custom-tabs-one-profile" aria-selected="false">Dissemination</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link <?= $category == 'settlement' ?'active':''?>"
+										id="custom-tabs-one-profile-tab"
+										href="<?= base_url('admin/tubelln/settlement/').$users_id ?>" role="tab"
+										aria-controls="custom-tabs-one-profile" aria-selected="false">Settlement Allowance</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link <?= $category == 'entrance' ?'active':''?>"
+										id="custom-tabs-one-profile-tab"
+										href="<?= base_url('admin/tubelln/entrance/').$users_id ?>" role="tab"
+										aria-controls="custom-tabs-one-profile" aria-selected="false">Entrance Fee</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link <?= $category == 'pembayaran' ?'active':''?>"
 										id="custom-tabs-one-messages-tab"
-										href="<?= base_url('admin/tubeldn/pembayaran/').$users_id ?>" role="tab"
+										href="<?= base_url('admin/tubelln/pembayaran/').$users_id ?>" role="tab"
 										aria-controls="custom-tabs-one-messages" aria-selected="false">Pembayaran</a>
 								</li>
 
@@ -96,7 +120,7 @@
 												<td><?php echo $report->created_at; ?></td>
 												<td>
 													<a class="btn btn-warning btn-sm"
-														href="<?= base_url("admin/monitoringdn/").$report->id ?>"><i
+														href="<?= base_url("admin/monitoringln/").$report->id ?>"><i
 															class="fa fa-desktop "></i></a>&nbsp&nbsp
 													<button type="button" class="btn btn-sm btn-primary"
 														data-toggle="modal"
@@ -150,7 +174,219 @@
 												<td><?php echo $report->created_at; ?></td>
 												<td>
 													<a class="btn btn-warning btn-sm"
-														href="<?= base_url("admin/monitoringdn/").$report->id ?>"><i
+														href="<?= base_url("admin/monitoringln/").$report->id ?>"><i
+															class="fa fa-desktop "></i></a>&nbsp&nbsp
+													<button type="button" class="btn btn-sm btn-primary"
+														data-toggle="modal"
+														data-target="#edit-report<?php echo $report->id;?>"><i
+															class="fa fa-user"></i></button>&nbsp&nbsp
+													<a class="btn btn-danger btn-sm delete-link"
+														href="<?= base_url('User/delete/'.$report->id);?>"><i
+															class="fa fa-trash "></i></a>
+
+												</td>
+											</tr>
+											<?php $no++; 
+											}
+										} ?>
+
+										</tbody>
+
+
+									</table>
+								</div>
+								<div class="tab-pane fade <?= $category == 'insurance' ?'show active':''?>"
+									id="custom-tabs-one-profile" role="tabpanel"
+									aria-labelledby="custom-tabs-one-profile-tab">
+									<table class="table table-striped table-bordered table-hover dataku">
+										<thead class="atas">
+											<tr>
+												<th width="5%">ID</th>
+												<th width="15%">Nama</th>
+												<th width="15%">Semester</th>
+												<th width="10%">Nominal</th>
+												<th width="10%">Status</th>
+												<th width="10%">Status Bayar</td>
+												<th width="10%">Dibuat</td>
+												<th>Action</th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+											$no=1;
+											if(@$reports != NULL) {
+											foreach ($reports as $report) {
+											?>
+											<tr>
+												<td><?php echo $no; ?></td>
+												<td><?php echo $report->nama; ?></td>
+												<td><?php echo $report->semester; ?></td>
+												<td><?php echo $report->nominal; ?></td>
+												<td><?php echo $report->status; ?></td>
+												<td><?php echo $report->status_bayar; ?></td>
+												<td><?php echo $report->created_at; ?></td>
+												<td>
+													<a class="btn btn-warning btn-sm"
+														href="<?= base_url("admin/monitoringln/").$report->id ?>"><i
+															class="fa fa-desktop "></i></a>&nbsp&nbsp
+													<button type="button" class="btn btn-sm btn-primary"
+														data-toggle="modal"
+														data-target="#edit-report<?php echo $report->id;?>"><i
+															class="fa fa-user"></i></button>&nbsp&nbsp
+													<a class="btn btn-danger btn-sm delete-link"
+														href="<?= base_url('User/delete/'.$report->id);?>"><i
+															class="fa fa-trash "></i></a>
+
+												</td>
+											</tr>
+											<?php $no++; 
+											}
+										} ?>
+
+										</tbody>
+
+
+									</table>
+								</div>
+								<div class="tab-pane fade <?= $category == 'dissemination' ?'show active':''?>"
+									id="custom-tabs-one-profile" role="tabpanel"
+									aria-labelledby="custom-tabs-one-profile-tab">
+									<table class="table table-striped table-bordered table-hover dataku">
+										<thead class="atas">
+											<tr>
+												<th width="5%">ID</th>
+												<th width="15%">Nama</th>
+												<th width="15%">Semester</th>
+												<th width="10%">Nominal</th>
+												<th width="10%">Status</th>
+												<th width="10%">Status Bayar</td>
+												<th width="10%">Dibuat</td>
+												<th>Action</th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+											$no=1;
+											if(@$reports != NULL) {
+											foreach ($reports as $report) {
+											?>
+											<tr>
+												<td><?php echo $no; ?></td>
+												<td><?php echo $report->nama; ?></td>
+												<td><?php echo $report->semester; ?></td>
+												<td><?php echo $report->nominal; ?></td>
+												<td><?php echo $report->status; ?></td>
+												<td><?php echo $report->status_bayar; ?></td>
+												<td><?php echo $report->created_at; ?></td>
+												<td>
+													<a class="btn btn-warning btn-sm"
+														href="<?= base_url("admin/monitoringln/").$report->id ?>"><i
+															class="fa fa-desktop "></i></a>&nbsp&nbsp
+													<button type="button" class="btn btn-sm btn-primary"
+														data-toggle="modal"
+														data-target="#edit-report<?php echo $report->id;?>"><i
+															class="fa fa-user"></i></button>&nbsp&nbsp
+													<a class="btn btn-danger btn-sm delete-link"
+														href="<?= base_url('User/delete/'.$report->id);?>"><i
+															class="fa fa-trash "></i></a>
+
+												</td>
+											</tr>
+											<?php $no++; 
+											}
+										} ?>
+
+										</tbody>
+
+
+									</table>
+								</div>
+								<div class="tab-pane fade <?= $category == 'settlement' ?'show active':''?>"
+									id="custom-tabs-one-profile" role="tabpanel"
+									aria-labelledby="custom-tabs-one-profile-tab">
+									<table class="table table-striped table-bordered table-hover dataku">
+										<thead class="atas">
+											<tr>
+												<th width="5%">ID</th>
+												<th width="15%">Nama</th>
+												<th width="15%">Semester</th>
+												<th width="10%">Nominal</th>
+												<th width="10%">Status</th>
+												<th width="10%">Status Bayar</td>
+												<th width="10%">Dibuat</td>
+												<th>Action</th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+											$no=1;
+											if(@$reports != NULL) {
+											foreach ($reports as $report) {
+											?>
+											<tr>
+												<td><?php echo $no; ?></td>
+												<td><?php echo $report->nama; ?></td>
+												<td><?php echo $report->semester; ?></td>
+												<td><?php echo $report->nominal; ?></td>
+												<td><?php echo $report->status; ?></td>
+												<td><?php echo $report->status_bayar; ?></td>
+												<td><?php echo $report->created_at; ?></td>
+												<td>
+													<a class="btn btn-warning btn-sm"
+														href="<?= base_url("admin/monitoringln/").$report->id ?>"><i
+															class="fa fa-desktop "></i></a>&nbsp&nbsp
+													<button type="button" class="btn btn-sm btn-primary"
+														data-toggle="modal"
+														data-target="#edit-report<?php echo $report->id;?>"><i
+															class="fa fa-user"></i></button>&nbsp&nbsp
+													<a class="btn btn-danger btn-sm delete-link"
+														href="<?= base_url('User/delete/'.$report->id);?>"><i
+															class="fa fa-trash "></i></a>
+
+												</td>
+											</tr>
+											<?php $no++; 
+											}
+										} ?>
+
+										</tbody>
+
+
+									</table>
+								</div>
+								<div class="tab-pane fade <?= $category == 'entrance' ?'show active':''?>"
+									id="custom-tabs-one-profile" role="tabpanel"
+									aria-labelledby="custom-tabs-one-profile-tab">
+									<table class="table table-striped table-bordered table-hover dataku">
+										<thead class="atas">
+											<tr>
+												<th width="5%">ID</th>
+												<th width="15%">Nama</th>
+												<th width="15%">Semester</th>
+												<th width="10%">Nominal</th>
+												<th width="10%">Status</th>
+												<th width="10%">Status Bayar</td>
+												<th width="10%">Dibuat</td>
+												<th>Action</th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+											$no=1;
+											if(@$reports != NULL) {
+											foreach ($reports as $report) {
+											?>
+											<tr>
+												<td><?php echo $no; ?></td>
+												<td><?php echo $report->nama; ?></td>
+												<td><?php echo $report->semester; ?></td>
+												<td><?php echo $report->nominal; ?></td>
+												<td><?php echo $report->status; ?></td>
+												<td><?php echo $report->status_bayar; ?></td>
+												<td><?php echo $report->created_at; ?></td>
+												<td>
+													<a class="btn btn-warning btn-sm"
+														href="<?= base_url("admin/monitoringln/").$report->id ?>"><i
 															class="fa fa-desktop "></i></a>&nbsp&nbsp
 													<button type="button" class="btn btn-sm btn-primary"
 														data-toggle="modal"
@@ -176,7 +412,7 @@
 									aria-labelledby="custom-tabs-one-messages-tab">
 									<div class="text-center">
 								
-										<a href="<?= base_url("admin/tubeldn/pembayaran/view_add/").@$users_id ?>" type="button" class="btn btn-sm btn-success"><i class="fa fa-plus-circle"></i>&nbsp;Proses Pembayaran</a>
+										<a href="<?= base_url("admin/tubelln/pembayaran/view_add/").@$users_id ?>" type="button" class="btn btn-sm btn-success"><i class="fa fa-plus-circle"></i>&nbsp;Proses Pembayaran</a>
 									</div>
 									<table class="table table-striped table-bordered table-hover dataku">
 										<thead class="atas">
@@ -210,7 +446,7 @@
 														data-target="#edit-bayar<?php echo $bayar->id;?>"><i
 															class="fa fa-desktop "></i></button>&nbsp;&nbsp; -->
 													<a target="_blank()" type="button" class="btn btn-sm btn-primary" 
-													href="<?= base_url('admin/tubeldn/pembayaran_cetak/').$bayar->id?>"><i
+													href="<?= base_url('admin/tubelln/pembayaran_cetak/').$bayar->id?>"><i
 															class="fa fa-print"></i></button>&nbsp;&nbsp;
 													<!-- <a class="btn btn-danger btn-sm delete-link"
 														href="<?= base_url('User/delete/'.$bayar->id);?>"><i
@@ -243,7 +479,7 @@
 									<span aria-hidden="true">&times;</span></button>
 
 							</div>
-							<form method="POST" action="<?php echo base_url('admin/tubeldn/livingcost_add'); ?>"
+							<form method="POST" action="<?php echo base_url('admin/tubelln/livingcost_add'); ?>"
 								enctype="multipart/form-data" class="form-horizontal">
 								<div class="modal-body">
 									<div class="form-group row">
@@ -309,7 +545,7 @@
 									<span aria-hidden="true">&times;</span></button>
 
 							</div>
-							<form method="POST" action="<?php echo base_url('admin/tubeldn/pembayaran_add'); ?>"
+							<form method="POST" action="<?php echo base_url('admin/tubelln/pembayaran_add'); ?>"
 								enctype="multipart/form-data" class="form-horizontal">
 								<div class="modal-body">
 									<div class="form-group row">
