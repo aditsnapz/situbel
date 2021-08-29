@@ -48,9 +48,44 @@
               </p>
             </a>
           </li>
+					<?php if(@$this->session->userdata('session_user')['status'] == 2) { ?>
 					
 					<li class="nav-item">
-            <a href="<?= base_url('Report') ?>" class="nav-link">
+            <a href="<?= base_url('user/insurance') ?>" class="nav-link">
+              <i class="nav-icon fa fa-file"></i>
+              <p>
+                Insurance
+              </p>
+            </a>
+          </li>
+					<li class="nav-item">
+            <a href="<?= base_url('user/disemination') ?>" class="nav-link">
+              <i class="nav-icon fa fa-file"></i>
+              <p>
+                Disemination
+              </p>
+            </a>
+          </li>
+					<li class="nav-item">
+            <a href="<?= base_url('user/settlement') ?>" class="nav-link">
+              <i class="nav-icon fa fa-file"></i>
+              <p>
+                Settlement Allowance
+              </p>
+            </a>
+          </li>
+					<li class="nav-item">
+            <a href="<?= base_url('user/entrance') ?>" class="nav-link">
+              <i class="nav-icon fa fa-file"></i>
+              <p>
+                Entrance Fee
+              </p>
+            </a>
+          </li>
+					<?php } ?>
+
+					<li class="nav-item">
+            <a href="<?= base_url('user/Profile') ?>" class="nav-link">
               <i class="nav-icon fa fa-user"></i>
               <p>
                 Profil

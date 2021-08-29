@@ -108,5 +108,13 @@ $route['admin/user/delete/(:any)'] = 'adminweb/User/delete/$id';
 /* User */
 $route['user/livingcost'] = 'user/Report/livingcost';
 $route['user/tuitionfee'] = 'user/Report/tuitionfee';
+$route['user/insurance'] = 'user/Report/insurance';
+$route['user/disemination'] = 'user/Report/disemination';
+$route['user/settlement'] = 'user/Report/settlement';
+$route['user/entrance'] = 'user/Report/entrance';
 $route['user/tuitionfee_add'] = 'user/Report/tuitionfee_add';
+$route['user/insurance_add'] = 'user/Report/insurance_add';
+$route['user/disemination_add'] = 'user/Report/disemination_add';
+$route['user/settlement_add'] = 'user/Report/settlement_add';
+$route['user/entrance_add'] = 'user/Report/entrance_add';
 /* End User */

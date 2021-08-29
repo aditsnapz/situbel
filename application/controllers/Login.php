@@ -18,13 +18,17 @@ class Login extends CI_Controller {
         $password = $this->input->post('password');
 
         $user = $this->db->get_where('users',['username' => $username, 'password' => md5($password)])->result_array();
+		$detail = $this->db->get_where('users_detail',['users_id' => $user[0]['id']])->result_array();
+		// var_dump($detail);
+		// die();
         if($user[0] != NULL && $user[0]['role'] == 10) {
         
             $data = [
                 'username' => $username,
 				'foto' => $user[0]['foto'],
 				'nama' => $user[0]['nama'],
-				'role' => $user[0]['role']
+				'role' => $user[0]['role'],
+				'status' => $detail[0]['status'],
             ];
 
             $this->session->set_userdata("session_user",$data);

@@ -76,7 +76,7 @@
 						<div class="card-header">
 							<h3 class="card-title"><b>Tabel Data Laporan </b></h3>
 							<div class="text-right">
-							<?php if($reports[0]->report_type_id != 1) { ?>
+							<?php if($status_report != 1) { ?>
 							<button type="button" class="btn btn-sm btn-success" data-toggle="modal"
 									data-target="#tambah-tuition-fee"><i class="fa fa-plus"></i>&nbsp&nbspTambah</button>
 							<?php } ?>
@@ -141,14 +141,15 @@
 									<span aria-hidden="true">&times;</span></button>
 
 							</div>
-							<form method="POST" action="<?php echo base_url('user/tuitionfee_add'); ?>"
+							<form method="POST" action="<?php echo base_url('user/'.$route.'_add'); ?>"
 								enctype="multipart/form-data" class="form-horizontal">
 								<div class="modal-body">
 									<div class="form-group row">
 										<label for="nama" class="col-md-2 col-form-label">Nama</label>
 										<div class="col-md-10">
 											<input type="text" name="nama" id="nama" class="form-control">
-											<input type="hidden" name="user_id" id="user_id" class="form-control" value="<?= @$users_id?>">
+											<input type="hidden" name="route" id="route" class="form-control" value="<?= @$route?>">
+
 										</div>
 									</div>
 									<div class="form-group row">

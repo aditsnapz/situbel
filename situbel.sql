@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Jul 2021 pada 04.28
+-- Waktu pembuatan: 29 Agu 2021 pada 16.45
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.4.8
 
@@ -18,8 +18,21 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `meds8688_situbel`
+-- Database: `situbel`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `notifikasi`
+--
+
+CREATE TABLE `notifikasi` (
+  `id` int(64) NOT NULL,
+  `report_id` int(11) NOT NULL,
+  `status` int(4) NOT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -36,7 +49,7 @@ CREATE TABLE `report` (
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `semester` varchar(16) NOT NULL,
-  `nominal` int(64) NOT NULL,
+  `nominal` varchar(64) NOT NULL,
   `status` int(4) NOT NULL COMMENT '0 : waiting\r\n1 : done\r\n2 : onprocess\r\n3 : rejected',
   `keterangan` text NOT NULL,
   `komentar` text NOT NULL,
@@ -53,11 +66,18 @@ CREATE TABLE `report` (
 --
 
 INSERT INTO `report` (`id`, `users_id`, `study_id`, `report_bayar_id`, `nama`, `start_date`, `end_date`, `semester`, `nominal`, `status`, `keterangan`, `komentar`, `status_bayar`, `created_at`, `updated_at`, `admin`, `approved_at`, `report_type_id`) VALUES
-(1, 4, 1, 9, 'Pembayaran Living Cost Pertama', '2021-07-01', '2021-07-31', '1', 10000000, 0, 'Harap Segera', 'Baik', 0, '2021-07-07 08:03:26', '2021-07-07 08:03:26', 1, '0000-00-00 00:00:00', 1),
-(2, 4, 1, 9, 'Pembayaran Tuition Fee Pertama', '2021-07-07', '2021-07-31', '1', 2000000, 0, 'urgent', 'baik', 0, '2021-07-07 08:06:58', '2021-07-07 08:06:58', 1, '0000-00-00 00:00:00', 2),
-(3, 4, 1, 0, 'tes', '2021-07-11', '2021-07-11', '1', 1000000, 0, 'adwdwa', 'adwdwa\r\n', 0, '2021-07-11 23:32:47', '2021-07-11 23:32:47', 1, '0000-00-00 00:00:00', 1),
-(4, 4, 1, 0, 'tes 2', '2021-07-11', '2021-07-11', '1', 2000000, 0, 'adwdwa', 'adwdwa\r\n', 0, '2021-07-11 23:33:13', '2021-07-11 23:33:13', 1, '0000-00-00 00:00:00', 1),
-(5, 4, 1, 1, 'tes 4', '2021-07-11', '2021-07-13', '1', 1000000, 0, 'ddgdgd', 'hfhfh', 0, '2021-07-11 23:35:48', '2021-07-11 23:35:48', 1, '0000-00-00 00:00:00', 1);
+(1, 4, 1, 10, 'Pembayaran Living Cost Pertama', '2021-07-01', '2021-07-31', '1', '10000000', 0, 'Harap Segera', 'Baik', 0, '2021-07-07 08:03:26', '2021-07-07 08:03:26', 1, '0000-00-00 00:00:00', 1),
+(2, 4, 1, 10, 'Pembayaran Tuition Fee Pertama', '2021-07-07', '2021-07-31', '1', '2000000', 0, 'urgent', 'baik', 0, '2021-07-07 08:06:58', '2021-07-07 08:06:58', 1, '0000-00-00 00:00:00', 2),
+(3, 4, 1, 0, 'tes', '2021-07-11', '2021-07-11', '1', '1000000', 0, 'adwdwa', 'adwdwa\r\n', 0, '2021-07-11 23:32:47', '2021-07-11 23:32:47', 1, '0000-00-00 00:00:00', 1),
+(4, 4, 1, 0, 'tes 2', '2021-07-11', '2021-07-11', '1', '2000000', 0, 'adwdwa', 'adwdwa\r\n', 0, '2021-07-11 23:33:13', '2021-07-11 23:33:13', 1, '0000-00-00 00:00:00', 1),
+(5, 4, 1, 0, 'tes 4', '2021-07-11', '2021-07-13', '1', '1000000', 0, 'ddgdgd', 'hfhfh', 0, '2021-07-11 23:35:48', '2021-07-11 23:35:48', 1, '0000-00-00 00:00:00', 1),
+(6, 8, 2, 15, 'Living Cost Bulan Mei-Juni 2021', '2021-07-28', '2021-07-31', '3', '44.80', 0, 'Asuransi Bulan Mei-Juni 2021', 'segera', 0, '2021-07-28 11:27:16', '2021-07-28 11:27:16', 1, '0000-00-00 00:00:00', 1),
+(7, 8, 2, 15, 'Pembayaran Tuition Fee 1', '2021-07-28', '2021-07-31', '3', '369.92', 0, 'Segera', 'Segera', 0, '2021-07-28 11:28:01', '2021-07-28 11:28:01', 1, '2021-07-28 11:28:01', 2),
+(8, 8, 2, 0, 'tes', '2021-08-23', '2021-08-23', '', '1000000', 0, 'tes2', 'tes2', 0, '2021-08-23 13:41:22', '2021-08-23 13:41:22', 0, '0000-00-00 00:00:00', 1),
+(9, 8, 2, 0, 'tes', '2021-08-23', '2021-08-23', '', '1000000', 0, 'tes iki', 'iki yakin tes', 0, '2021-08-23 13:42:54', '2021-08-23 13:42:54', 0, '0000-00-00 00:00:00', 2),
+(10, 8, 2, 0, 'tes2', '1111-11-11', '2021-08-29', '1', '100000', 0, 'oke', 'okeeoek', 0, '2021-08-29 12:04:32', '2021-08-29 12:04:32', 0, '0000-00-00 00:00:00', 2),
+(11, 5, 3, 0, 'tes settlement', '2021-08-29', '2021-08-29', '3', '1000000', 0, 'adw', 'adw', 0, '2021-08-29 18:39:50', '2021-08-29 18:39:50', 0, '0000-00-00 00:00:00', 5),
+(12, 8, 2, 0, 'tes', '2021-08-29', '2021-08-29', '1', '1000000', 0, 'gugugug', 'bjbj', 0, '2021-08-29 20:57:47', '2021-08-29 20:57:47', 1, '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -68,9 +88,12 @@ INSERT INTO `report` (`id`, `users_id`, `study_id`, `report_bayar_id`, `nama`, `
 CREATE TABLE `report_bayar` (
   `id` int(11) NOT NULL,
   `users_id` int(11) NOT NULL,
-  `semester` int(4) NOT NULL,
+  `semester` varchar(16) NOT NULL,
+  `nomor_sk` text NOT NULL,
   `kurs` varchar(64) NOT NULL,
   `tanggal_bayar` date NOT NULL,
+  `biaya_admin` varchar(64) NOT NULL,
+  `keterangan_biaya_admin` text NOT NULL,
   `nominal` int(64) NOT NULL,
   `admin` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
@@ -81,16 +104,10 @@ CREATE TABLE `report_bayar` (
 -- Dumping data untuk tabel `report_bayar`
 --
 
-INSERT INTO `report_bayar` (`id`, `users_id`, `semester`, `kurs`, `tanggal_bayar`, `nominal`, `admin`, `created_at`, `updated_at`) VALUES
-(1, 4, 1, '131,52', '2021-07-12', 10000000, 1, '2021-07-12 00:34:19', '2021-07-12 00:34:19'),
-(2, 4, 1, '13.309,73', '2021-07-12', 0, 1, '2021-07-12 03:51:55', '2021-07-12 03:51:55'),
-(3, 4, 1, '13.309,73', '2021-07-12', 0, 1, '2021-07-12 03:52:25', '2021-07-12 03:52:25'),
-(4, 4, 1, '13.309,73', '2021-07-12', 0, 1, '2021-07-12 03:53:27', '2021-07-12 03:53:27'),
-(5, 4, 1, '13.309,73', '2021-07-12', 0, 1, '2021-07-12 03:54:21', '2021-07-12 03:54:21'),
-(6, 4, 1, '13.309,73', '2021-07-13', 0, 1, '2021-07-12 04:02:35', '2021-07-12 04:02:35'),
-(7, 4, 2, '13.309,73', '2021-07-12', 0, 1, '2021-07-12 04:04:08', '2021-07-12 04:04:08'),
-(8, 4, 2, '13.309,73', '0000-00-00', 0, 1, '2021-07-12 04:07:04', '2021-07-12 04:07:04'),
-(9, 4, 3, '13.309,73', '2021-07-12', 0, 1, '2021-07-12 04:08:10', '2021-07-12 04:08:10');
+INSERT INTO `report_bayar` (`id`, `users_id`, `semester`, `nomor_sk`, `kurs`, `tanggal_bayar`, `biaya_admin`, `keterangan_biaya_admin`, `nominal`, `admin`, `created_at`, `updated_at`) VALUES
+(10, 4, '5', '', '13.309,73', '0000-00-00', '', '', 0, 1, '2021-07-27 10:30:05', '2021-07-27 10:30:05'),
+(14, 8, 'IV', '\"SK Rektor Nomor 466/UN7.P/HK/2020 tanggal 19 Mei 2020\r\n\r\nSK Rektor Nomor 803/UN7.P/HK/2020 tanggal 03 Agustus 2020\"\r\n\r\n\r\n', '17462,20', '2021-08-16', '470000', ' Biaya admin untuk living cost dan tuition fee (35.000 rupiah + (30 USD x  14.500 rupiah)) \r\n', 7711924, 1, '2021-08-16 04:12:19', '2021-08-16 04:12:19'),
+(15, 8, 'IV', '<p>SK</p>', '1', '2021-08-29', '470000', '<p>Pembayaran Admin</p>', 470415, 1, '2021-08-29 20:59:37', '2021-08-29 20:59:37');
 
 -- --------------------------------------------------------
 
@@ -125,7 +142,11 @@ CREATE TABLE `report_type` (
 
 INSERT INTO `report_type` (`id`, `nama`, `report_document_id`, `created_at`, `updated_at`) VALUES
 (1, 'Living Cost', '[]', '2021-07-04 00:00:00', '2021-07-04 00:00:00'),
-(2, 'Tuition Fee', '[]', '2021-07-07 08:02:34', '2021-07-07 08:02:34');
+(2, 'Tuition Fee', '[]', '2021-07-07 08:02:34', '2021-07-07 08:02:34'),
+(3, 'Insurance', '[]', '2021-08-29 17:17:02', '2021-08-29 17:17:02'),
+(4, 'Disemination', '[]', '2021-08-29 17:18:11', '2021-08-29 17:18:11'),
+(5, 'Settlement Allowance', '[]', '2021-08-29 17:18:40', '2021-08-29 17:18:40'),
+(6, 'Entrance Fee', '[]', '2021-08-29 17:19:04', '2021-08-29 17:19:04');
 
 -- --------------------------------------------------------
 
@@ -157,14 +178,14 @@ INSERT INTO `roles` (`id`, `nama`, `keterangan`, `status`) VALUES
 CREATE TABLE `study` (
   `id` int(11) NOT NULL,
   `users_id` int(11) NOT NULL,
-  `university` varchar(128) NOT NULL,
+  `university` text NOT NULL,
   `country` varchar(64) NOT NULL,
   `province` varchar(64) NOT NULL,
   `city` varchar(64) NOT NULL,
   `mata_uang` varchar(64) NOT NULL,
   `postal_code` varchar(16) NOT NULL,
   `jenjang` varchar(32) NOT NULL,
-  `program_studi` varchar(64) NOT NULL,
+  `program_studi` text NOT NULL,
   `status` int(2) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
@@ -175,7 +196,9 @@ CREATE TABLE `study` (
 --
 
 INSERT INTO `study` (`id`, `users_id`, `university`, `country`, `province`, `city`, `mata_uang`, `postal_code`, `jenjang`, `program_studi`, `status`, `created_at`, `updated_at`) VALUES
-(1, 4, 'Universitas Diponegoro', 'Indonesia', 'Jawa Tengah', 'Semarang', 'IDR', '50264', 'Sarjana', 'Teknik Komunikasi', 0, '2021-07-07 08:03:56', '2021-07-07 08:03:56');
+(1, 4, 'Universitas Diponegoro', 'Indonesia', 'Jawa Tengah', 'Semarang', 'IDR', '50264', 'Sarjana', 'Teknik Komunikasi', 0, '2021-07-07 08:03:56', '2021-07-07 08:03:56'),
+(2, 8, 'Johann Wolfgang Goethe Universitat Frankfrut, Jerman\r\n\r\n\r\n', 'Jerman', 'Jerman', 'Jerman', 'EUR', '50264', 'Doctoral', 'Doctoral Programming Study Southeast Asia Studies, Faculty of Linguistics, Cultures and Arts\r\n\r\n\r\n', 1, '2021-07-28 11:19:27', '2021-07-28 11:19:27'),
+(3, 5, 'Massachusetts Institute of Technology', 'Amerika', 'MA', 'Cambridge', 'USD', '422134', 'Sarjana', 'Teknik Informatiks', 1, '2020-09-07 15:08:48', '2020-09-07 15:08:48');
 
 -- --------------------------------------------------------
 
@@ -204,7 +227,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `nama`, `username`, `email`, `password`, `jabatan`, `role`, `foto`, `created_at`, `updated_at`, `last_login`) VALUES
 (1, 'Aditya Dwi Pratama, S.Kom', 'adittama', 'aditsnapzcz@gmail.com', '0730a546749f9bb60d47b2b0fdeb3854', 'Super Admin', 1, 'adittama.png', '2021-05-23 17:17:11', '2021-05-23 17:17:11', '2021-05-23 21:08:01'),
 (4, 'Lintang Wulandari, S.Hum', 'lintangwulandari', 'lintangwulandari@gmail.com', '3f0e00ce28433345533bebc64797bcdb', 'Sekretaris', 10, 'lintangwulandari.jpg', '2021-05-29 21:07:43', '2021-07-06 20:44:41', '0000-00-00 00:00:00'),
-(5, 'Reza Indra Satrio S.Pd', 'reza', '', 'bb98b1d0b523d5e783f931550d7702b6', '', 10, 'reza.jpg', '2021-07-06 20:39:26', '2021-07-06 20:44:49', '2021-07-06 20:39:26');
+(5, 'Reza Indra Satrio S.Pd', 'reza', '', '0730a546749f9bb60d47b2b0fdeb3854', '', 10, 'reza.jpg', '2021-07-06 20:39:26', '2021-07-06 20:44:49', '2021-07-06 20:39:26'),
+(8, 'Nuriyatul Lailiyah, S.Sos., M.I.Kom.\r\n\r\n\r\n', 'nuriyatul', 'nuriyatul@gmail.com', '0730a546749f9bb60d47b2b0fdeb3854', 'User', 10, 'lintangwulandari.jpg', '2021-07-28 11:13:18', '2021-07-28 11:13:18', '2021-07-28 11:14:25');
 
 -- --------------------------------------------------------
 
@@ -221,6 +245,7 @@ CREATE TABLE `users_detail` (
   `address` text NOT NULL,
   `mobile_phone` varchar(32) NOT NULL,
   `passport` varchar(32) NOT NULL,
+  `no_rekening` text NOT NULL,
   `status` int(4) NOT NULL COMMENT 'tubeldn, tubelln, ijin belajar',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
@@ -230,12 +255,20 @@ CREATE TABLE `users_detail` (
 -- Dumping data untuk tabel `users_detail`
 --
 
-INSERT INTO `users_detail` (`id`, `users_id`, `gender`, `pob`, `dob`, `address`, `mobile_phone`, `passport`, `status`, `created_at`, `updated_at`) VALUES
-(1, 4, 'P', 'Semarang', '2021-07-07', 'Semarang aja', '082812822812', '-', 1, '2021-07-07 06:58:26', '2021-07-07 06:58:26');
+INSERT INTO `users_detail` (`id`, `users_id`, `gender`, `pob`, `dob`, `address`, `mobile_phone`, `passport`, `no_rekening`, `status`, `created_at`, `updated_at`) VALUES
+(1, 4, 'P', 'Semarang', '2021-07-07', 'Semarang aja', '082812822812', '-', '', 1, '2021-07-07 06:58:26', '2021-07-07 06:58:26'),
+(2, 8, 'P', 'Semarang', '2021-07-07', 'UNDIP', '1201921912', 'ABCDEF', 'Account: DE64500400000381887900\r\nBank : COMMERZBANK\r\nSwift Code : COBADEFFXXX', 1, '2021-07-28 11:18:12', '2021-07-28 11:18:12'),
+(3, 5, 'L', 'Semarang', '2021-08-23', 'Jalan ict', '082812822812', '-', 'Account: DE6450040000038188XXX\r\nBank : COMMERZBANKXXXX\r\nSwift Code : COBADEFFXXX', 2, '2020-09-07 15:08:48', '2020-09-07 15:08:48');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indeks untuk tabel `notifikasi`
+--
+ALTER TABLE `notifikasi`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `report`
@@ -290,16 +323,22 @@ ALTER TABLE `users_detail`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `notifikasi`
+--
+ALTER TABLE `notifikasi`
+  MODIFY `id` int(64) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `report`
 --
 ALTER TABLE `report`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `report_bayar`
 --
 ALTER TABLE `report_bayar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `report_document`
@@ -311,7 +350,7 @@ ALTER TABLE `report_document`
 -- AUTO_INCREMENT untuk tabel `report_type`
 --
 ALTER TABLE `report_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `roles`
@@ -323,19 +362,19 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT untuk tabel `study`
 --
 ALTER TABLE `study`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `users_detail`
 --
 ALTER TABLE `users_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
