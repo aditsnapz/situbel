@@ -51,7 +51,7 @@
 	font-weight: bold;
 	font-size: 16pt;">KEMENTERIAN PENDIDIKAN DAN KEBUDAYAAN, RISET, DAN TEKNOLOGI
 					</h1>
-					<img src="<?= base_url() ?>assets/dist/img/Undip_favicon.png" style="max-width:80px">
+					<!-- <img src="<?= base_url() ?>assets/dist/img/Undip_favicon.png" style="max-width:80px"> -->
 					<h1 style="font-family: 'Times New Roman' Times, serif;
 	font-weight: bold;
 	font-size: 14pt;">Universitas Diponegoro Semarang
@@ -97,15 +97,16 @@
 			<tr>
 				<td width="100%" valign="top" style="padding-top:0">
 
-					<h1 style="font-family: 'Times New Roman' Times, serif;
+					<!-- <h1 style="font-family: 'Times New Roman' Times, serif;
 	font-weight: bold;padding-top:0;line-height:0;
-	font-size: 12pt;">REPORT PREFERENCES :
+	font-size: 12pt;">REPORT PREFERENCES : -->
 
 				</td>
 			</tr>
 
 		</table>
-		<p>(KURS : <?php echo $study->mata_uang.' '.$reportbayars->kurs; ?>)</p>
+		<br>
+		<!-- <p>(KURS : <?php// echo $study->mata_uang.' '.$reportbayars->kurs; ?>)</p> -->
 		<div class="judul" style="margin-top: 0px;margin-bottom: 10px;width:100%;display:block">
 			<div style="min-width:100%;display:flex">
 

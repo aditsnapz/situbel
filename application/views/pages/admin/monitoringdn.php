@@ -91,7 +91,19 @@
 												<td><?php echo $report->nama; ?></td>
 												<td><?php echo $report->semester; ?></td>
 												<td><?php echo $report->nominal; ?></td>
-												<td><?php echo $report->status; ?></td>
+												<td><?php 
+														if($report->status == 0) { 
+															echo '<span class="badge bg-secondary">Waiting</span>';	
+														} else if ($report->status == 1) { 
+															echo '<span class="badge bg-warning">On Process</span>';	
+														} else if ($report->status == 2) { 
+															echo '<span class="badge bg-primary">Waiting Payment</span>';	
+														} else if ($report->status == 3) { 
+															echo '<span class="badge bg-danger">Rejected</span>';	
+														} else if ($report->status == 4) { 
+															echo '<span class="badge bg-success">Done</span>';	
+														}
+												?></td>
 												<td><?php echo $report->status_bayar; ?></td>
 												<td><?php echo $report->created_at; ?></td>
 												<td>
@@ -145,7 +157,19 @@
 												<td><?php echo $report->nama; ?></td>
 												<td><?php echo $report->semester; ?></td>
 												<td><?php echo $report->nominal; ?></td>
-												<td><?php echo $report->status; ?></td>
+												<td><?php 
+														if($report->status == 0) { 
+															echo '<span class="badge bg-secondary">Waiting</span>';	
+														} else if ($report->status == 1) { 
+															echo '<span class="badge bg-warning">On Process</span>';	
+														} else if ($report->status == 2) { 
+															echo '<span class="badge bg-primary">Waiting Payment</span>';	
+														} else if ($report->status == 3) { 
+															echo '<span class="badge bg-danger">Rejected</span>';	
+														} else if ($report->status == 4) { 
+															echo '<span class="badge bg-success">Done</span>';	
+														}
+												?></td>
 												<td><?php echo $report->status_bayar; ?></td>
 												<td><?php echo $report->created_at; ?></td>
 												<td>

@@ -6,6 +6,9 @@ class Frontend extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('frontend.php');
+		$this->load->view('main_frontend.php',[
+			"page" => "home",
+			"content" => [], 
+		]);  
     }
 }

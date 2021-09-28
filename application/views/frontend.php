@@ -103,7 +103,7 @@
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-sm-3">
                                 <div class="logo-area">
-                                    <a href="index.html"><img class="img-responsive" src="<?= base_url() ?>assets/frontend/img/logo-textprimary.png" alt="logo"></a>
+                                    <a href="index.html"><img class="img-responsive" src="<?= base_url() ?>assets/frontend/img/situbel.png" alt="logo"></a>
                                 </div>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9">
@@ -311,7 +311,7 @@
                 <div id="slider-direction-1" class="t-cn slider-direction">
                     <div class="slider-content s-tb slide-1">
                         <div class="title-container s-tb-c">
-                            <div class="title1">Best Education For Diploma</div>
+                            <div class="title1">Situbel (Sistem Tugas Belajar)</div>
                             <p>Emply dummy text of the printing and typesetting industry orem Ipsum has been the industry's standard
                                 <br>dummy text ever sinceprinting and typesetting industry. </p>
                             <div class="slider-btn-area">
@@ -1109,7 +1109,7 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="footer-box">
-                                <a href="index.html"><img class="img-responsive" src="<?= base_url() ?>assets/frontend/img/logo-footer.png" alt="logo"></a>
+                                <a href="index.html"><img class="img-responsive" src="<?= base_url() ?>assets/frontend/img/situbel.png" alt="logo"></a>
                                 <div class="footer-about">
                                     <p>Praesent vel rutrum purus. Nam vel dui eu sus duis dignissim dignissim. Suspenetey disse at ros tecongueconsequat.Fusce sit amet rna feugiat.</p>
                                 </div>

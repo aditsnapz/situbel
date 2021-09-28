@@ -80,9 +80,9 @@
 
 											<hr>
 											<h4>Nama </h4>
-											<input type="text" name="nama" id="nama" class="col-md-10 form-control" value="<?= $users->nama ?>">
+											<input type="text" name="nama" id="nama" class="col-md-10 form-control" value="<?= $users->nama; ?>">
 											<h4>Email </h4>
-											<input type="text" name="nama" id="nama" class="col-md-10 form-control" value="<?= $users->email ?>">
+											<input type="text" name="email" id="email" class="col-md-10 form-control" value="<?= $users->email; ?>">
 											<h4>Tempat & Tanggal Lahir </h4>
 											<input type="text" name="nama" id="nama" class="col-md-10 form-control" value="<?= $users->pob.' , '.$users->dob ?>">
 											<h4>No HP </h4>

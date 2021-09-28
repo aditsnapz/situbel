@@ -25,7 +25,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="active nav-item">
-            <a href="<?= base_url('Dashboard') ?>" class="nav-link">
+            <a href="<?= base_url('admin/dashboard') ?>" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -40,6 +40,7 @@
               </p>
             </a>
           </li> -->
+					<li class="nav-header">MONITORING</li>
 					<li class="nav-item">
             <a href="<?= base_url('admin/tubeldn') ?>" class="nav-link">
               <i class="nav-icon ion ion-monitor"></i>
@@ -64,6 +65,7 @@
               </p>
             </a>
           </li>
+					<li class="nav-header">LANDING</li>
 		       
           
         </ul>

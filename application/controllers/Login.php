@@ -9,7 +9,7 @@ class Login extends CI_Controller {
 		if($this->session->userdata('session_user')){
             redirect(base_url('Dashboard'));
         }
-        $this->load->view('login_user');
+		redirect(base_url());
     }
     
     public function do_login()
@@ -21,7 +21,7 @@ class Login extends CI_Controller {
 		$detail = $this->db->get_where('users_detail',['users_id' => $user[0]['id']])->result_array();
 		// var_dump($detail);
 		// die();
-        if($user[0] != NULL && $user[0]['role'] == 10) {
+        if($user[0] != NULL && $user[0]['role'] == 10 && $user[0]['status'] == 1) {
         
             $data = [
                 'username' => $username,

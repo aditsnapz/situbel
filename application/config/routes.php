@@ -102,6 +102,7 @@ $route['admin/tubelln'] = 'adminweb/TubelLn';
 $route['admin/user'] = 'adminweb/User';
 $route['admin/user/edit'] = 'adminweb/User/edit';
 $route['admin/user/add'] = 'adminweb/User/add';
+$route['admin/user/activation/(:any)'] = 'adminweb/User/activation/$id';
 $route['admin/user/delete/(:any)'] = 'adminweb/User/delete/$id';
 /* End Admin */
 

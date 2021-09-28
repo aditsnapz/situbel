@@ -70,6 +70,7 @@ class User extends CI_Controller {
         $data = [
 			"nama" => $this->input->post('nama'),
 			"email" => $this->input->post('email'),
+			"username" => $this->input->post('username'),
             "updated_at" => date("Y-m-d H:i:s"),
         ];
 
@@ -81,7 +82,7 @@ class User extends CI_Controller {
             $config['upload_path'] = $this->path;
             $config['max_size'] = '0';
             $config['allowed_types'] = 'jpg|jpeg|png';
-            $config['overwrite'] = FALSE;
+            $config['overwrite'] = TRUE;
             $config['remove_spaces'] = FALSE;
                 $filename = $_FILES['foto']['name'];
                 $ext = pathinfo($filename, PATHINFO_EXTENSION);
@@ -105,6 +106,17 @@ class User extends CI_Controller {
     {
 	
         $this->UserModel->delete($this->uri->segment(4));
+        redirect(base_url('admin/user'));
+    }
+
+	public function activation()
+    {
+	
+		$data = [
+			"status" => 1,
+		];
+        var_dump($this->UserModel->update($data, $this->uri->segment(4)));
+		
         redirect(base_url('admin/user'));
     }
 

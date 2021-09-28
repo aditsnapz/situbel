@@ -40,10 +40,10 @@
 										<th width="5%">ID</th>
 										<th width="15%">Nama</th>
 										<th width="15%">Username</th>
-										<th width="20%">Foto</th>
-										<th width="15%">Created</th>
-										<th width="15%">Updated</th>
-										<th>Action</th>
+										<th width="15%">Foto</th>
+										<th width="10%">Created</th>
+										<th width="10%">Updated</th>
+										<th width="15%">Action</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -67,7 +67,9 @@
 											<a class="btn btn-danger btn-sm delete-link"
 												href="<?= base_url('admin/user/delete/'.$user->id);?>"><i
 													class="fa fa-trash "></i></a>
-											
+											<?php if ($user->status == 0) { ?>
+											<a type="button" class="btn btn-sm btn-success" href="<?= base_url('admin/user/activation/'.$user->id);?>">Activated</button>
+											<?php }?>
 										</td>
 									</tr>
 									<?php $no++; } ?>
@@ -102,6 +104,12 @@
 										<label for="email" class="col-md-2 col-form-label">Username</label>
 										<div class="col-md-10">
 											<input type="text" name="username" id="username" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="email" class="col-md-2 col-form-label">Email</label>
+										<div class="col-md-10">
+											<input type="text" name="email" id="email" class="form-control">
 										</div>
 									</div>
 									<div class="form-group row">
@@ -162,6 +170,12 @@
 										<div class="col-md-10">
 											<input type="text" name="username" id="username" class="form-control"
 												value="<?= $user->username ?>">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="email" class="col-md-2 col-form-label">Email</label>
+										<div class="col-md-10">
+											<input type="text" name="email" id="email" class="form-control" value="<?= $user->email ?>">
 										</div>
 									</div>
 									<div class="form-group row">
