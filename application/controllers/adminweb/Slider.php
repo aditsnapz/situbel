@@ -1,24 +1,23 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User extends CI_Controller {
+class Slider extends CI_Controller {
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('UserModel');
-        $this->load->model('UserDetailModel');
-        $this->path = 'assets/uploads/user/images/';
+        $this->load->model('SliderModel');
+        $this->path = 'assets/uploads/slider/images/';
     }
 
 	public function index()
 	{
-        $users = $this->UserModel->show_user();
+        $sliders = $this->SliderModel->show();
       
         $this->load->view('main_admin.php',[
-            "page" => "user",
+            "page" => "slider",
             "content" => [],
-            "users" => $users, 
+            "sliders" => $sliders, 
         ]);
     }
 
@@ -27,7 +26,7 @@ class User extends CI_Controller {
         date_default_timezone_set("Asia/Jakarta");
         $data = [
             "nama" => $this->input->post('nama'),
-            "username" => $this->input->post('username'),
+            "slidername" => $this->input->post('slidername'),
             "role" => 10,
             "password" => md5($this->input->post('password')),
             "created_at" => date("Y-m-d H:i:s"),
@@ -43,7 +42,7 @@ class User extends CI_Controller {
             $config['remove_spaces'] = FALSE;
                 $filename = $_FILES['foto']['name'];
                 $ext = pathinfo($filename, PATHINFO_EXTENSION);
-            $name = $this->input->post('username').'.'.$ext;
+            $name = $this->input->post('slidername').'.'.$ext;
             $config['file_name'] = $name;
             $this->load->library('upload', $config);
             $this->upload->initialize($config);
@@ -58,8 +57,8 @@ class User extends CI_Controller {
                 
             }
         } 
-        $this->UserModel->insert($data);
-        redirect(base_url('admin/user'));
+        $this->SliderModel->insert($data);
+        redirect(base_url('admin/slider'));
         
         
     }
@@ -71,7 +70,7 @@ class User extends CI_Controller {
         $data = [
 			"nama" => $this->input->post('nama'),
 			"email" => $this->input->post('email'),
-			"username" => $this->input->post('username'),
+			"slidername" => $this->input->post('slidername'),
             "updated_at" => date("Y-m-d H:i:s"),
         ];
 
@@ -87,7 +86,7 @@ class User extends CI_Controller {
             $config['remove_spaces'] = FALSE;
                 $filename = $_FILES['foto']['name'];
                 $ext = pathinfo($filename, PATHINFO_EXTENSION);
-            $name = $this->input->post('username').'.'.$ext;
+            $name = $this->input->post('slidername').'.'.$ext;
             $config['file_name'] = $name;
             $this->load->library('upload', $config);
             $this->upload->initialize($config);
@@ -100,28 +99,16 @@ class User extends CI_Controller {
             }
         } 
         $this->UserModel->update($data, $id);
-        redirect(base_url('admin/user'));
+        redirect(base_url('admin/slider'));
     }
 
     public function delete()
     {
 	
         $this->UserModel->delete($this->uri->segment(4));
-        redirect(base_url('admin/user'));
+        redirect(base_url('admin/slider'));
     }
 
-	public function activation()
-    {
 	
-		$data = [
-			"status" => 1,
-		];
-
-        $this->UserModel->update($data, $this->uri->segment(4));
-	
-
-
-        redirect(base_url('admin/user'));
-    }
 
 }

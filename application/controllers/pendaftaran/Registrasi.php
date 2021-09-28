@@ -27,6 +27,7 @@ class Registrasi extends CI_Controller {
             "role" => 10,
             "password" => md5($this->input->post('password')),
 			"email" => $this->input->post('email'),
+			
             "created_at" => date("Y-m-d H:i:s"),
             "updated_at" => date("Y-m-d H:i:s"),
             
@@ -34,7 +35,7 @@ class Registrasi extends CI_Controller {
 		$user = $this->UserModel->insert($data);
 
 		$data2 = [
-			"id" => $user,
+			"users_id" => $user,
             "nip" => $this->input->post('nip'),
             "mobile_phone" => $this->input->post('mobile_phone'),
             
