@@ -107,6 +107,9 @@ $route['admin/user/delete/(:any)'] = 'adminweb/User/delete/$id';
 
 $route['admin/slider'] = 'adminweb/Slider';
 $route['admin/slider/add'] = 'adminweb/Slider/add';
+$route['admin/slider/edit/(:any)'] = 'adminweb/Slider/edit/$id';
+$route['admin/slider/add_process'] = 'adminweb/Slider/add_process';
+$route['admin/slider/edit_process'] = 'adminweb/Slider/edit_process';
 /* End Admin */
 
 /* User */

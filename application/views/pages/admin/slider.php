@@ -26,7 +26,7 @@
 							<h3 class="card-title"><b>Tabel Data </b></h3>
 							<div class="text-right">
 								
-								<a href="<?= base_url('admin/slider/add') ?>" type="button" class="btn btn-sm btn-success" ><i class="fa fa-plus"></i>&nbsp&nbspTambah</button>
+								<a href="<?= base_url('admin/slider/add') ?>" type="button" class="btn btn-sm btn-success" ><i class="fa fa-plus"></i>&nbsp&nbspTambah</a>
 							</div>
 						</div>
 						<!-- /.box-header -->
@@ -47,26 +47,25 @@
 								<tbody>
 									<?php
                                 $no=1;
-                                foreach ($users as $user) {
+                                foreach ($sliders as $slider) {
                                 ?>
 									<tr>
 										<td><?php echo $no; ?></td>
-										<td><?php echo $user->nama; ?></td>
-										<td><?php echo $user->judul; ?></td>
-										<td><?php echo $user->deskripsi; ?></td>
-										<td><img src="<?= base_url('assets/uploads/user/images/').$user->foto; ?>" width="100px">
+										<td><?php echo $slider->nama; ?></td>
+										<td><?php echo $slider->judul; ?></td>
+										<td><?php echo $slider->deskripsi; ?></td>
+										<td><img src="<?= base_url('assets/uploads/slider/images/').$slider->foto; ?>" width="100px">
 										</td>
-										<td><?php echo $user->status; ?></td>
+										<td><?php echo $slider->status; ?></td>
 										<td>
 											
-											<button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
-												data-target="#edit-user<?php echo $user->id;?>"><i
-													class="fa fa-edit"></i></button>&nbsp&nbsp
+											<a href="<?= base_url('admin/slider/edit/'.$slider->id) ?>" type="button" class="btn btn-sm btn-primary"><i
+													class="fa fa-edit"></i></a>&nbsp&nbsp
 											<a class="btn btn-danger btn-sm delete-link"
-												href="<?= base_url('admin/user/delete/'.$user->id);?>"><i
+												href="<?= base_url('admin/slider/delete/'.$slider->id);?>"><i
 													class="fa fa-trash "></i></a>
-											<?php if ($user->status == 0) { ?>
-											<a type="button" class="btn btn-sm btn-success" href="<?= base_url('admin/user/activation/'.$user->id);?>">Activated</button>
+											<?php if ($slider->status == 0) { ?>
+											<a type="button" class="btn btn-sm btn-success" href="<?= base_url('admin/slider/activation/'.$slider->id);?>">Activated</button>
 											<?php }?>
 										</td>
 									</tr>

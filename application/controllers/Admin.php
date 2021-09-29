@@ -7,7 +7,7 @@ class Admin extends CI_Controller {
 	public function index()
 	{
 		if($this->session->userdata('session_admin')){
-            redirect(base_url('admin/Dashboard'));
+            redirect(base_url('admin/dashboard'));
         }
         $this->load->view('login_admin');
     }

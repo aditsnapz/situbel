@@ -7,12 +7,12 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1>Tambah Slider Baru</h1>
+					<h1>Edit Slider </h1>
 				</div>
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="#">Slider</a></li>
-						<li class="breadcrumb-item active">Tambah Slider</li>
+						<li class="breadcrumb-item active">Edit Slider</li>
 					</ol>
 				</div>
 			</div>
@@ -25,7 +25,7 @@
 				<div class="col-12">
 					<div class="card card-danger">
 						<div class="card-header">
-							<h3 class="card-title "><b>Tambah Slider </b></h3>
+							<h3 class="card-title "><b>Edit Slider </b></h3>
 							<div class="text-right">
 								<!-- <button type="button" class="btn btn-sm btn-warning" data-toggle="modal"
 									data-target="#import-user"><i class="fa fa-upload"></i>&nbsp&nbspImport</button>
@@ -35,27 +35,28 @@
 						</div>
 						<!-- /.box-header -->
 						<div class="card-body table-responsive">
-						<form method="POST" action="<?php echo base_url('admin/slider/add_process'); ?>"
+						<form method="POST" action="<?php echo base_url('admin/slider/edit_process'); ?>"
 								enctype="multipart/form-data" class="form-horizontal">
 								<div class="modal-body">
 									
 									<div class="form-group row">
 										<label for="text" class="col-md-2 col-form-label">Nama</label>
 										<div class="col-md-10">
-											<input type="text" name="nama" id="nama" class="form-control text-right">
+											<input type="text" name="nama" id="nama" class="form-control" value="<?= $slider->nama ?>">
+											<input type="hidden" name="id" id="id" class="form-control " value="<?= $slider->id ?>">
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="text" class="col-md-2 col-form-label">Judul</label>
 										<div class="col-md-10">
-											<textarea type="text" name="judul" id="judul" class="form-control textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+											<textarea type="text" name="judul" id="judul" class="form-control textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?= $slider->judul ?></textarea>
 										</div>
 									
 									</div>
 									<div class="form-group row">
 										<label for="text" class="col-md-2 col-form-label">Deskripsi</label>
 										<div class="col-md-10">
-											<textarea type="text" name="deskripsi" id="deskripsi" class="form-control textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+											<textarea type="text" name="deskripsi" id="deskripsi" class="form-control textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?= $slider->deskripsi ?></textarea>
 										</div>
 									
 									</div>

@@ -21,14 +21,36 @@ class Slider extends CI_Controller {
         ]);
     }
 
-    public function add()
+	public function add()
+	{
+      
+        $this->load->view('main_admin.php',[
+            "page" => "slideradd",
+            "content" => [],
+        ]);
+    }
+
+	public function edit()
+	{
+		$id = $this->uri->segment(4);
+		$slider = $this->SliderModel->show_id($id);
+		// var_dump($slider);
+		// die();
+        $this->load->view('main_admin.php',[
+            "page" => "slideredit",
+            "content" => [],
+			"slider" => $slider,
+        ]);
+    }
+
+    public function add_process()
     {
         date_default_timezone_set("Asia/Jakarta");
         $data = [
             "nama" => $this->input->post('nama'),
-            "slidername" => $this->input->post('slidername'),
-            "role" => 10,
-            "password" => md5($this->input->post('password')),
+            "judul" => $this->input->post('judul'),
+            "deskripsi" => $this->input->post('deskripsi'),
+            "status" => $this->input->post('status'),
             "created_at" => date("Y-m-d H:i:s"),
             "updated_at" => date("Y-m-d H:i:s"),
             
@@ -42,7 +64,7 @@ class Slider extends CI_Controller {
             $config['remove_spaces'] = FALSE;
                 $filename = $_FILES['foto']['name'];
                 $ext = pathinfo($filename, PATHINFO_EXTENSION);
-            $name = $this->input->post('slidername').'.'.$ext;
+            $name = $this->input->post('nama').'.'.$ext;
             $config['file_name'] = $name;
             $this->load->library('upload', $config);
             $this->upload->initialize($config);
@@ -63,30 +85,28 @@ class Slider extends CI_Controller {
         
     }
 
-    public function edit()
+    public function edit_process()
     {
         $id = $this->input->post('id');
-        date_default_timezone_set("Asia/Jakarta");
+		date_default_timezone_set("Asia/Jakarta");
         $data = [
-			"nama" => $this->input->post('nama'),
-			"email" => $this->input->post('email'),
-			"slidername" => $this->input->post('slidername'),
+            "nama" => $this->input->post('nama'),
+            "judul" => $this->input->post('judul'),
+            "deskripsi" => $this->input->post('deskripsi'),
+            "status" => $this->input->post('status'),
             "updated_at" => date("Y-m-d H:i:s"),
+            
         ];
-
-        if($this->input->post('password') != NULL) {
-            $data['password'] = md5($this->input->post('password'));
-        }
-
+        
         if (isset($_FILES['foto']['name']) && $_FILES['foto']['name'] != '') {
             $config['upload_path'] = $this->path;
             $config['max_size'] = '0';
             $config['allowed_types'] = 'jpg|jpeg|png';
-            $config['overwrite'] = TRUE;
+            $config['overwrite'] = FALSE;
             $config['remove_spaces'] = FALSE;
                 $filename = $_FILES['foto']['name'];
                 $ext = pathinfo($filename, PATHINFO_EXTENSION);
-            $name = $this->input->post('slidername').'.'.$ext;
+            $name = $this->input->post('nama').'.'.$ext;
             $config['file_name'] = $name;
             $this->load->library('upload', $config);
             $this->upload->initialize($config);
@@ -96,9 +116,12 @@ class Slider extends CI_Controller {
                 die();
             }else{
                 $data['foto'] = $name;
+                
+                
+                
             }
         } 
-        $this->UserModel->update($data, $id);
+        $this->SliderModel->update($data,$id);
         redirect(base_url('admin/slider'));
     }
 

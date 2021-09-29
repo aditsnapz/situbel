@@ -8,12 +8,11 @@ class SliderModel extends CI_Model
         return $this->db->get('slider')->result();
     }
 
-	public function show_active_id($id)
+	public function show_id($id)
     {
         $this->db->select('*');
-		$this->db->where('status',1);
-		$this->db->where('users_id',$id);
-        return $this->db->get('slider')->result();
+		$this->db->where('id',$id);
+        return $this->db->get('slider')->result()[0];
     }
 
     public function insert($data)

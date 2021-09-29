@@ -2,24 +2,31 @@
 <div class="slider1-area slider3-area overlay-default">
 	<div class="bend niceties preview-1">
 		<div id="ensign-nivoslider-3" class="slides">
+			<?php 
+			$no = 1;
+			foreach($sliders as $slider) { ?>
+				<img src="<?= base_url() ?>assets/uploads/slider/images/<?= $slider->foto ?>" alt="slider" title="#slider-direction-<?= $no ?>" />
+			<?php $no++; } ?>
 			<img src="<?= base_url() ?>assets/frontend/img/slider/3-1.jpg" alt="slider" title="#slider-direction-1" />
 			<img src="<?= base_url() ?>assets/frontend/img/slider/3-2.jpg" alt="slider" title="#slider-direction-2" />
 			<img src="<?= base_url() ?>assets/frontend/img/slider/3-3.jpg" alt="slider" title="#slider-direction-3" />
 		</div>
-		<div id="slider-direction-1" class="t-cn slider-direction">
-			<div class="slider-content s-tb slide-1">
+		<?php 
+			$no = 1;
+			foreach($sliders as $slider) { ?>
+		<div id="slider-direction-<?= $no ?>" class="t-cn slider-direction">
+			<div class="slider-content s-tb slide-<?= $no ?>">
 				<div class="title-container s-tb-c">
-					<div class="title1">Situbel (Sistem Tugas Belajar)</div>
-					<p>Emply dummy text of the printing and typesetting industry orem Ipsum has been the industry's
-						standard
-						<br>dummy text ever sinceprinting and typesetting industry. </p>
+					<div class="title1"><?= $slider->judul ?></div>
+					<?= $slider->deskripsi ?>
 					<div class="slider-btn-area">
 						<a href="#" class="default-big-btn">Start a Course</a>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div id="slider-direction-2" class="t-cn slider-direction">
+		<?php $no++; } ?>
+		<!-- <div id="slider-direction-2" class="t-cn slider-direction">
 			<div class="slider-content s-tb slide-2">
 				<div class="title-container s-tb-c">
 					<div class="title1">Best Education For HTML Template</div>
@@ -44,7 +51,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 </div>
 <!-- Slider 1 Area End Here -->
