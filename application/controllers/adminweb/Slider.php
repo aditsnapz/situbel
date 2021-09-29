@@ -60,7 +60,7 @@ class Slider extends CI_Controller {
             $config['upload_path'] = $this->path;
             $config['max_size'] = '0';
             $config['allowed_types'] = 'jpg|jpeg|png';
-            $config['overwrite'] = FALSE;
+            $config['overwrite'] = TRUE;
             $config['remove_spaces'] = FALSE;
                 $filename = $_FILES['foto']['name'];
                 $ext = pathinfo($filename, PATHINFO_EXTENSION);
@@ -102,7 +102,7 @@ class Slider extends CI_Controller {
             $config['upload_path'] = $this->path;
             $config['max_size'] = '0';
             $config['allowed_types'] = 'jpg|jpeg|png';
-            $config['overwrite'] = FALSE;
+            $config['overwrite'] = TRUE;
             $config['remove_spaces'] = FALSE;
                 $filename = $_FILES['foto']['name'];
                 $ext = pathinfo($filename, PATHINFO_EXTENSION);

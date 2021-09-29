@@ -7,9 +7,9 @@
 			foreach($sliders as $slider) { ?>
 				<img src="<?= base_url() ?>assets/uploads/slider/images/<?= $slider->foto ?>" alt="slider" title="#slider-direction-<?= $no ?>" />
 			<?php $no++; } ?>
-			<img src="<?= base_url() ?>assets/frontend/img/slider/3-1.jpg" alt="slider" title="#slider-direction-1" />
+			<!-- <img src="<?= base_url() ?>assets/frontend/img/slider/3-1.jpg" alt="slider" title="#slider-direction-1" />
 			<img src="<?= base_url() ?>assets/frontend/img/slider/3-2.jpg" alt="slider" title="#slider-direction-2" />
-			<img src="<?= base_url() ?>assets/frontend/img/slider/3-3.jpg" alt="slider" title="#slider-direction-3" />
+			<img src="<?= base_url() ?>assets/frontend/img/slider/3-3.jpg" alt="slider" title="#slider-direction-3" /> -->
 		</div>
 		<?php 
 			$no = 1;
