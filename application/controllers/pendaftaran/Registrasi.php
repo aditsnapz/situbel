@@ -37,6 +37,7 @@ class Registrasi extends CI_Controller {
 		$data2 = [
 			"users_id" => $user,
             "nip" => $this->input->post('nip'),
+			"status" => $this->input->post('status'),
             "mobile_phone" => $this->input->post('mobile_phone'),
             
         ];

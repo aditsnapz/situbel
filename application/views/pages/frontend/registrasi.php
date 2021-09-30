@@ -58,6 +58,19 @@
 						</div>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<div class="form-group">
+							<label class="control-label" for="email">Program Belajar *</label>
+							<select name="status" id="status" class="form-control">
+								<option value="1">Tugas Belajar Dalam Negeri</option>
+								<option value="2">Tugas Belajar Luar Negeri</option>
+								<option value="3">Ijin Belajar</option>
+							</select>
+						</div>
+					</div>
+					
+				</div>
 				
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

@@ -126,22 +126,24 @@
 					</thead>
 					<?php 
 				$no=1;
+				$count = count($reports)+1;
 				foreach($reports as $report) {?>
 					<tr>
-						<td><?php echo $no; ?></td>
+						
 
 						<?php if($no == 1) { ?>
-						<td><?php echo $users->nama; ?></td>
-						<td><?php echo $reportbayars->nomor_sk; ?></td>
-						<td><?php echo $users_detail->no_rekening; ?></td>
-						<td><?php echo $study->university; ?></td>
-						<td><?php echo $study->program_studi; ?></td>
+						<td rowspan=<?= $count ?>><?php echo 1; ?></td>
+						<td rowspan=<?= $count ?>><?php echo $users->nama; ?></td>
+						<td rowspan=<?= $count ?>><?php echo $reportbayars->nomor_sk; ?></td>
+						<td rowspan=<?= $count ?>><?php echo $users_detail->no_rekening; ?></td>
+						<td rowspan=<?= $count ?>><?php echo $study->university; ?></td>
+						<td rowspan=<?= $count ?>><?php echo $study->program_studi; ?></td>
 						<?php } else { ?>
+						<!-- <td></td>
 						<td></td>
 						<td></td>
 						<td></td>
-						<td></td>
-						<td></td>
+						<td></td> -->
 						<?php }?>
 						<td><?php echo $report->nama; ?></td>
 						<td align="right"><?php 
@@ -155,23 +157,19 @@
 					</tr>
 					<?php $no++;} ?>
 					<tr>
-						<td><?php echo $no; ?></td>
+						<!-- <td><?php echo $no; ?></td> -->
+						<!-- <td></td>
 						<td></td>
 						<td></td>
 						<td></td>
-						<td></td>
-						<td></td>
+						<td></td> -->
 						<td><?php echo $reportbayars->keterangan_biaya_admin; ?></td>
 						<td align="right"><?php echo "Rp. " . number_format($reportbayars->biaya_admin, 2, ".", ",");; ?></td>
 					</tr>
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td>Total Biaya</td>
+						<!-- <td ></td> -->
+						
+						<td colspan="7" align="right">Total Biaya</td>
 						<td align="right" id="rupiah"><?php echo "Rp. " . number_format($reportbayars->nominal, 2, ".", ",");; ?></td>
 					</tr>
 				</table>
@@ -179,6 +177,7 @@
 
 			</div>
 			<div style="min-width:100%">
+			<br><br>
 			<table class="tabel-data" style="width:100%;padding-top:10px" >
 					<tr>
 						<td width="30%">Pejabat Pelaksana dan Pengendali Kegiatan (PPPK)
@@ -218,7 +217,7 @@
 
 
 </td>
-<td>Dhika Prihantono, S.Kom.
+<td>Mona Martinasari, S.T.
 
 
 
@@ -235,7 +234,7 @@
 
 
 </td>
-<td>NIP. 199103130216011050
+<td>NIP. H.7.198705102021042001
 
 
 
