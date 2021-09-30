@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Agu 2021 pada 16.45
+-- Waktu pembuatan: 30 Sep 2021 pada 11.28
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.4.8
 
@@ -54,6 +54,7 @@ CREATE TABLE `report` (
   `keterangan` text NOT NULL,
   `komentar` text NOT NULL,
   `status_bayar` int(4) NOT NULL COMMENT '0 : unpaid\r\n1 : paid\r\n2 : onprocess',
+  `status_dokumen` int(4) NOT NULL COMMENT '0 : Upload\r\n1 : Perbaikan\r\n2 : Benar',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `admin` int(11) NOT NULL,
@@ -65,19 +66,19 @@ CREATE TABLE `report` (
 -- Dumping data untuk tabel `report`
 --
 
-INSERT INTO `report` (`id`, `users_id`, `study_id`, `report_bayar_id`, `nama`, `start_date`, `end_date`, `semester`, `nominal`, `status`, `keterangan`, `komentar`, `status_bayar`, `created_at`, `updated_at`, `admin`, `approved_at`, `report_type_id`) VALUES
-(1, 4, 1, 10, 'Pembayaran Living Cost Pertama', '2021-07-01', '2021-07-31', '1', '10000000', 0, 'Harap Segera', 'Baik', 0, '2021-07-07 08:03:26', '2021-07-07 08:03:26', 1, '0000-00-00 00:00:00', 1),
-(2, 4, 1, 10, 'Pembayaran Tuition Fee Pertama', '2021-07-07', '2021-07-31', '1', '2000000', 0, 'urgent', 'baik', 0, '2021-07-07 08:06:58', '2021-07-07 08:06:58', 1, '0000-00-00 00:00:00', 2),
-(3, 4, 1, 0, 'tes', '2021-07-11', '2021-07-11', '1', '1000000', 0, 'adwdwa', 'adwdwa\r\n', 0, '2021-07-11 23:32:47', '2021-07-11 23:32:47', 1, '0000-00-00 00:00:00', 1),
-(4, 4, 1, 0, 'tes 2', '2021-07-11', '2021-07-11', '1', '2000000', 0, 'adwdwa', 'adwdwa\r\n', 0, '2021-07-11 23:33:13', '2021-07-11 23:33:13', 1, '0000-00-00 00:00:00', 1),
-(5, 4, 1, 0, 'tes 4', '2021-07-11', '2021-07-13', '1', '1000000', 0, 'ddgdgd', 'hfhfh', 0, '2021-07-11 23:35:48', '2021-07-11 23:35:48', 1, '0000-00-00 00:00:00', 1),
-(6, 8, 2, 15, 'Living Cost Bulan Mei-Juni 2021', '2021-07-28', '2021-07-31', '3', '44.80', 0, 'Asuransi Bulan Mei-Juni 2021', 'segera', 0, '2021-07-28 11:27:16', '2021-07-28 11:27:16', 1, '0000-00-00 00:00:00', 1),
-(7, 8, 2, 15, 'Pembayaran Tuition Fee 1', '2021-07-28', '2021-07-31', '3', '369.92', 0, 'Segera', 'Segera', 0, '2021-07-28 11:28:01', '2021-07-28 11:28:01', 1, '2021-07-28 11:28:01', 2),
-(8, 8, 2, 0, 'tes', '2021-08-23', '2021-08-23', '', '1000000', 0, 'tes2', 'tes2', 0, '2021-08-23 13:41:22', '2021-08-23 13:41:22', 0, '0000-00-00 00:00:00', 1),
-(9, 8, 2, 0, 'tes', '2021-08-23', '2021-08-23', '', '1000000', 0, 'tes iki', 'iki yakin tes', 0, '2021-08-23 13:42:54', '2021-08-23 13:42:54', 0, '0000-00-00 00:00:00', 2),
-(10, 8, 2, 0, 'tes2', '1111-11-11', '2021-08-29', '1', '100000', 0, 'oke', 'okeeoek', 0, '2021-08-29 12:04:32', '2021-08-29 12:04:32', 0, '0000-00-00 00:00:00', 2),
-(11, 5, 3, 0, 'tes settlement', '2021-08-29', '2021-08-29', '3', '1000000', 0, 'adw', 'adw', 0, '2021-08-29 18:39:50', '2021-08-29 18:39:50', 0, '0000-00-00 00:00:00', 5),
-(12, 8, 2, 0, 'tes', '2021-08-29', '2021-08-29', '1', '1000000', 0, 'gugugug', 'bjbj', 0, '2021-08-29 20:57:47', '2021-08-29 20:57:47', 1, '0000-00-00 00:00:00', 1);
+INSERT INTO `report` (`id`, `users_id`, `study_id`, `report_bayar_id`, `nama`, `start_date`, `end_date`, `semester`, `nominal`, `status`, `keterangan`, `komentar`, `status_bayar`, `status_dokumen`, `created_at`, `updated_at`, `admin`, `approved_at`, `report_type_id`) VALUES
+(1, 4, 1, 10, 'Pembayaran Living Cost Pertama', '2021-07-01', '2021-07-31', '1', '10000000', 0, 'Harap Segera', 'Baik', 0, 0, '2021-07-07 08:03:26', '2021-07-07 08:03:26', 1, '0000-00-00 00:00:00', 1),
+(2, 4, 1, 10, 'Pembayaran Tuition Fee Pertama', '2021-07-07', '2021-07-31', '1', '2000000', 0, 'urgent', 'baik', 0, 0, '2021-07-07 08:06:58', '2021-07-07 08:06:58', 1, '0000-00-00 00:00:00', 2),
+(3, 4, 1, 0, 'tes', '2021-07-11', '2021-07-11', '1', '1000000', 0, 'adwdwa', 'adwdwa\r\n', 0, 0, '2021-07-11 23:32:47', '2021-07-11 23:32:47', 1, '0000-00-00 00:00:00', 1),
+(4, 4, 1, 0, 'tes 2', '2021-07-11', '2021-07-11', '1', '2000000', 0, 'adwdwa', 'adwdwa\r\n', 0, 0, '2021-07-11 23:33:13', '2021-07-11 23:33:13', 1, '0000-00-00 00:00:00', 1),
+(5, 4, 1, 0, 'tes 4', '2021-07-11', '2021-07-13', '1', '1000000', 0, 'ddgdgd', 'hfhfh', 0, 0, '2021-07-11 23:35:48', '2021-07-11 23:35:48', 1, '0000-00-00 00:00:00', 1),
+(6, 8, 2, 15, 'Living Cost Bulan Mei-Juni 2021', '2021-07-28', '2021-07-31', '3', '44.80', 0, 'Asuransi Bulan Mei-Juni 2021', 'segera', 0, 0, '2021-07-28 11:27:16', '2021-07-28 11:27:16', 1, '0000-00-00 00:00:00', 1),
+(7, 8, 2, 15, 'Pembayaran Tuition Fee 1', '2021-07-28', '2021-07-31', '3', '369.92', 0, 'Segera', 'Segera', 0, 0, '2021-07-28 11:28:01', '2021-07-28 11:28:01', 1, '2021-07-28 11:28:01', 2),
+(8, 8, 2, 0, 'tes', '2021-08-23', '2021-08-23', '', '1000000', 0, 'tes2', 'tes2', 0, 0, '2021-08-23 13:41:22', '2021-08-23 13:41:22', 0, '0000-00-00 00:00:00', 1),
+(9, 8, 2, 0, 'tes', '2021-08-23', '2021-08-23', '', '1000000', 0, 'tes iki', 'iki yakin tes', 0, 0, '2021-08-23 13:42:54', '2021-08-23 13:42:54', 0, '0000-00-00 00:00:00', 2),
+(10, 8, 2, 0, 'tes2', '1111-11-11', '2021-08-29', '1', '100000', 0, 'oke', 'okeeoek', 0, 0, '2021-08-29 12:04:32', '2021-08-29 12:04:32', 0, '0000-00-00 00:00:00', 2),
+(11, 5, 3, 0, 'tes settlement', '2021-08-29', '2021-08-29', '3', '1000000', 0, 'adw', 'adw', 0, 0, '2021-08-29 18:39:50', '2021-08-29 18:39:50', 0, '0000-00-00 00:00:00', 5),
+(12, 8, 2, 0, 'tes', '2021-08-29', '2021-08-29', '1', '1000000', 0, 'gugugug', 'bjbj', 0, 0, '2021-08-29 20:57:47', '2021-08-29 20:57:47', 1, '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -118,6 +119,7 @@ INSERT INTO `report_bayar` (`id`, `users_id`, `semester`, `nomor_sk`, `kurs`, `t
 CREATE TABLE `report_document` (
   `id` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL,
+  `report_id` int(32) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -168,6 +170,32 @@ CREATE TABLE `roles` (
 INSERT INTO `roles` (`id`, `nama`, `keterangan`, `status`) VALUES
 (1, 'Super Admin', 'Semua sistem monitoring', 1),
 (10, 'User', 'User Pendaftar Situbel', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `slider`
+--
+
+CREATE TABLE `slider` (
+  `id` int(11) DEFAULT NULL,
+  `nama` varchar(64) NOT NULL,
+  `judul` text NOT NULL,
+  `deskripsi` text NOT NULL,
+  `status` int(4) NOT NULL,
+  `foto` text NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `slider`
+--
+
+INSERT INTO `slider` (`id`, `nama`, `judul`, `deskripsi`, `status`, `foto`, `created_at`, `updated_at`) VALUES
+(NULL, 'slider 1', '<p><span style=\"color: rgb(255, 255, 255); font-family: Roboto, sans-serif; font-size: 56px; text-align: center; text-transform: capitalize;\">Best Education For HTML Template</span><br></p>', '<p><span style=\"color: rgb(255, 255, 255); font-family: Roboto, sans-serif; text-align: center;\">Emply dummy text of the printing and typesetting industry orem Ipsum has been the industry\'s standard</span><br style=\"color: rgb(255, 255, 255); font-family: Roboto, sans-serif; text-align: center;\"><span style=\"color: rgb(255, 255, 255); font-family: Roboto, sans-serif; text-align: center;\">dummy text ever sinceprinting and typesetting industry.</span><br></p>', 1, 'slider 1.jpeg', '2021-09-30 16:23:36', '2021-09-30 16:23:36'),
+(NULL, 'Slider 2', '<p><span style=\"color: rgb(255, 255, 255); font-family: Roboto, sans-serif; font-size: 56px; text-align: center; text-transform: capitalize;\">Best Education For HTML Template</span><br></p>', '<p><span style=\"color: rgb(255, 255, 255); font-family: Roboto, sans-serif; text-align: center;\">Emply dummy text of the printing and typesetting industry orem Ipsum has been the industry\'s standard</span><br style=\"color: rgb(255, 255, 255); font-family: Roboto, sans-serif; text-align: center;\"><span style=\"color: rgb(255, 255, 255); font-family: Roboto, sans-serif; text-align: center;\">dummy text ever sinceprinting and typesetting industry.</span><br></p>', 1, 'Slider 2.jpeg', '2021-09-30 16:24:24', '2021-09-30 16:24:24'),
+(NULL, 'Slider 3', '<p><span style=\"color: rgb(255, 255, 255); font-family: Roboto, sans-serif; font-size: 56px; text-align: center; text-transform: capitalize;\">Best Education Into PHP</span><br></p>', '<p><span style=\"color: rgb(255, 255, 255); font-family: Roboto, sans-serif; text-align: center;\">Emply dummy text of the printing and typesetting industry orem Ipsum has been the industry\'s standard</span><br style=\"color: rgb(255, 255, 255); font-family: Roboto, sans-serif; text-align: center;\"><span style=\"color: rgb(255, 255, 255); font-family: Roboto, sans-serif; text-align: center;\">dummy text ever sinceprinting and typesetting industry.</span><br></p>', 1, 'Slider 3.jpeg', '2021-09-30 16:25:15', '2021-09-30 16:25:15');
 
 -- --------------------------------------------------------
 
